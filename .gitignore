@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+STATUS_REPORT.md
+data/
+logs/
+notebooks/
+models/
+
 # C extensions
 *.so
 
