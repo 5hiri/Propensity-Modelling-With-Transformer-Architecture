@@ -105,7 +105,7 @@ def get_medium_classifier_config() -> ModelConfig:
         n_layers=8,
         n_heads=8,
         d_ff=2048,
-        max_seq_len=512,
+        max_seq_len=4096,
         batch_size=4,
         max_epochs=5
     )
@@ -117,7 +117,7 @@ def get_large_classifier_config() -> ModelConfig:
         n_layers=12,
         n_heads=12,
         d_ff=3072,
-        max_seq_len=512,
+        max_seq_len=8192,
         batch_size=4,
         max_epochs=5
     )

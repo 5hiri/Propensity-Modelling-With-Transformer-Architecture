@@ -5,6 +5,20 @@ from torch.nn.utils import clip_grad_norm_
 from dataclasses import asdict
 import math
 import time
+from typing import Union, Optional, Any, TYPE_CHECKING
+
+try:  # Optional pandas support
+    import pandas as pd  # type: ignore
+    _PANDAS_AVAILABLE = True
+except ImportError:  # pragma: no cover - pandas optional
+    pd = None  # type: ignore
+    _PANDAS_AVAILABLE = False
+
+if TYPE_CHECKING:
+    import pandas as _pd
+    DataFrameLike = _pd.DataFrame
+else:  # at runtime keep it loose to avoid hard dependency
+    DataFrameLike = Any
 
 from src.utils.config import ModelConfig
 from src.model.transformer import SimpleLLM
@@ -65,11 +79,70 @@ def build_model(cfg: ModelConfig, single_logit: bool = True):
     )
     return model
 
+def _dataframe_to_dataset(df: DataFrameLike) -> SimpleTextDataset:
+    """Convert a pandas DataFrame into a SimpleTextDataset.
+
+    Expected columns:
+      - input_ids: sequence (list[int] or 1D tensor)
+      - attention_mask: (optional) sequence same length as input_ids
+      - label: class index / int
+    Any missing attention_mask column will be auto-created as ones.
+    """
+    if not _PANDAS_AVAILABLE:
+        raise RuntimeError("pandas is not installed but a DataFrame was provided.")
+    required = {"input_ids", "label"}
+    missing = required - set(df.columns)
+    if missing:
+        raise ValueError(f"DataFrame missing required columns: {missing}")
+    has_mask = "attention_mask" in df.columns
+    samples = []
+    for _, row in df.iterrows():
+        input_ids = row["input_ids"]
+        if not torch.is_tensor(input_ids):
+            input_ids = torch.tensor(list(input_ids), dtype=torch.long)
+        attention_mask = row["attention_mask"] if has_mask else torch.ones_like(input_ids)
+        if not torch.is_tensor(attention_mask):
+            attention_mask = torch.tensor(list(attention_mask), dtype=torch.long)
+        label = int(row["label"])  # enforce int
+        samples.append({
+            "input_ids": input_ids,
+            "attention_mask": attention_mask,
+            "label": label,
+        })
+    return SimpleTextDataset(samples)
+
+
+def _ensure_dataset(obj: Union[Dataset, DataFrameLike, list, tuple]):
+    """Accept several lightweight container formats and return a Dataset.
+
+    Supported:
+      - torch.utils.data.Dataset (returned as-is)
+      - pandas.DataFrame (converted)
+      - list/tuple of dict samples (wrapped)
+    """
+    if isinstance(obj, Dataset):
+        return obj
+    if _PANDAS_AVAILABLE and isinstance(obj, pd.DataFrame):  # type: ignore
+        return _dataframe_to_dataset(obj)
+    if isinstance(obj, (list, tuple)) and obj and isinstance(obj[0], dict):
+        return SimpleTextDataset(obj)
+    raise TypeError("Unsupported dataset type. Provide a Dataset, DataFrame, or list of sample dicts.")
+
 
 def train_classifier(cfg: ModelConfig,
-                     train_dataset: Dataset,
-                     val_dataset: Dataset | None = None,
+                     train_dataset: Union[Dataset, DataFrameLike, list, tuple],
+                     val_dataset: Optional[Union[Dataset, DataFrameLike, list, tuple]] = None,
                      device: str = "cuda" if torch.cuda.is_available() else "cpu"):
+    """Train a classifier.
+
+    train_dataset / val_dataset can be:
+      - torch Dataset returning (input_ids, attention_mask, label)
+      - pandas DataFrame with columns: input_ids, (optional) attention_mask, label
+      - list/tuple of dict samples {"input_ids": Tensor|list[int], "attention_mask": Tensor|list[int], "label": int}
+    """
+    train_dataset = _ensure_dataset(train_dataset)
+    val_dataset = _ensure_dataset(val_dataset) if val_dataset is not None else None
+
     model = build_model(cfg, single_logit=(cfg.num_classes == 2))
     model.to(device)
 
@@ -89,7 +162,7 @@ def train_classifier(cfg: ModelConfig,
         )
 
     optimizer = AdamW(model.parameters(), lr=cfg.learning_rate, weight_decay=cfg.weight_decay)
-    
+
     total_steps = cfg.max_epochs * math.ceil(len(train_loader))
     warmup = max(10, int(0.05 * total_steps))
 
@@ -98,7 +171,7 @@ def train_classifier(cfg: ModelConfig,
             return step / float(max(1, warmup))
         progress = (step - warmup) / float(max(1, total_steps - warmup))
         return 0.5 * (1.0 + math.cos(math.pi * progress))
-    
+
     scheduler = torch.optim.lr_scheduler.LambdaLR(optimizer, lr_lambda)
 
     best_val_loss = float("inf")
@@ -131,7 +204,6 @@ def train_classifier(cfg: ModelConfig,
 
             global_step += 1
 
-        # End-of-epoch validation
         if val_loader:
             val_loss, val_acc = evaluate(model, val_loader, device, return_metrics=True)
             improved = val_loss < best_val_loss - 1e-4
@@ -146,6 +218,16 @@ def train_classifier(cfg: ModelConfig,
         model.load_state_dict(best_state)
 
     return model
+
+
+def train_classifier_from_dataframe(cfg: ModelConfig,
+                                    train_df: DataFrameLike,
+                                    val_df: Optional[DataFrameLike] = None,
+                                    device: str = "cuda" if torch.cuda.is_available() else "cpu"):
+    """Convenience wrapper when working directly with pandas DataFrames."""
+    if not _PANDAS_AVAILABLE:
+        raise RuntimeError("pandas not installed. Install pandas or pass a Dataset instead.")
+    return train_classifier(cfg, train_df, val_df, device=device)
 
 @torch.no_grad()
 def evaluate(model: torch.nn.Module, data_loader: DataLoader, device: str, return_metrics: bool = False):
