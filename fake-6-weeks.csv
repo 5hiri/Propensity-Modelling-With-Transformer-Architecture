@@ -1,0 +1,901 @@
+user_pseudo_id,session_id,date_formatted,event_timestamp,event_name,rev_usd,unique_items,qty,page_location,page_title
+u_001,s_001_01_w1,2025-08-25,1756036801000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_01_w1,2025-08-25,1756036807000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_001,s_001_01_w1,2025-08-25,1756036813000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_001,s_001_01_w1,2025-08-25,1756036819000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_001,s_001_01_w1,2025-08-25,1756036825000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_01_w1,2025-08-25,1756036831000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_001,s_001_02_w2,2025-09-01,1756641601000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_02_w2,2025-09-01,1756641607000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_001,s_001_02_w2,2025-09-01,1756641613000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_001,s_001_02_w2,2025-09-01,1756641619000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_001,s_001_02_w2,2025-09-01,1756641625000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_02_w2,2025-09-01,1756641631000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_001,s_001_03_w3,2025-09-08,1757246401000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_03_w3,2025-09-08,1757246407000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_001,s_001_03_w3,2025-09-08,1757246413000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_001,s_001_03_w3,2025-09-08,1757246419000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_001,s_001_03_w3,2025-09-08,1757246425000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_03_w3,2025-09-08,1757246431000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_001,s_001_04_w4,2025-09-15,1757851201000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_04_w4,2025-09-15,1757851207000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_001,s_001_04_w4,2025-09-15,1757851213000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_001,s_001_04_w4,2025-09-15,1757851219000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_001,s_001_04_w4,2025-09-15,1757851225000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_04_w4,2025-09-15,1757851231000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_001,s_001_05_w5,2025-09-22,1758456001000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_05_w5,2025-09-22,1758456007000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_001,s_001_05_w5,2025-09-22,1758456013000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_001,s_001_05_w5,2025-09-22,1758456019000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_001,s_001_05_w5,2025-09-22,1758456025000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_05_w5,2025-09-22,1758456031000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_001,s_001_06_w6,2025-09-29,1759057201000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001_06_w6,2025-09-29,1759057207000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_001,s_001_06_w6,2025-09-29,1759057213000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_001,s_001_06_w6,2025-09-29,1759057219000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_001,s_001_06_w6,2025-09-29,1759057225000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_001,s_001_06_w6,2025-09-29,1759057231000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_002,s_002_01_w1,2025-08-25,1756036802000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_01_w1,2025-08-25,1756036808000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_002,s_002_01_w1,2025-08-25,1756036814000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_002,s_002_01_w1,2025-08-25,1756036820000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_002,s_002_01_w1,2025-08-25,1756036826000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_01_w1,2025-08-25,1756036832000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_002,s_002_02_w2,2025-09-01,1756641602000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_02_w2,2025-09-01,1756641608000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_002,s_002_02_w2,2025-09-01,1756641614000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_002,s_002_02_w2,2025-09-01,1756641620000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_002,s_002_02_w2,2025-09-01,1756641626000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_02_w2,2025-09-01,1756641632000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_002,s_002_03_w3,2025-09-08,1757246402000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_03_w3,2025-09-08,1757246408000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_002,s_002_03_w3,2025-09-08,1757246414000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_002,s_002_03_w3,2025-09-08,1757246420000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_002,s_002_03_w3,2025-09-08,1757246426000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_03_w3,2025-09-08,1757246432000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_002,s_002_04_w4,2025-09-15,1757851202000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_04_w4,2025-09-15,1757851208000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_002,s_002_04_w4,2025-09-15,1757851214000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_002,s_002_04_w4,2025-09-15,1757851220000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_002,s_002_04_w4,2025-09-15,1757851226000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_04_w4,2025-09-15,1757851232000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_002,s_002_05_w5,2025-09-22,1758456002000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_05_w5,2025-09-22,1758456008000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_002,s_002_05_w5,2025-09-22,1758456014000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_002,s_002_05_w5,2025-09-22,1758456020000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_002,s_002_05_w5,2025-09-22,1758456026000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_05_w5,2025-09-22,1758456032000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_002,s_002_06_w6,2025-09-29,1759057202000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_002_06_w6,2025-09-29,1759057208000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_002,s_002_06_w6,2025-09-29,1759057214000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_002,s_002_06_w6,2025-09-29,1759057220000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_002,s_002_06_w6,2025-09-29,1759057226000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_002,s_002_06_w6,2025-09-29,1759057232000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_003,s_003_01_w1,2025-08-25,1756036803000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_01_w1,2025-08-25,1756036809000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_003,s_003_01_w1,2025-08-25,1756036815000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_003,s_003_01_w1,2025-08-25,1756036821000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_003,s_003_01_w1,2025-08-25,1756036827000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_01_w1,2025-08-25,1756036833000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_003,s_003_02_w2,2025-09-01,1756641603000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_02_w2,2025-09-01,1756641609000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_003,s_003_02_w2,2025-09-01,1756641615000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_003,s_003_02_w2,2025-09-01,1756641621000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_003,s_003_02_w2,2025-09-01,1756641627000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_02_w2,2025-09-01,1756641633000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_003,s_003_03_w3,2025-09-08,1757246403000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_03_w3,2025-09-08,1757246409000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_003,s_003_03_w3,2025-09-08,1757246415000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_003,s_003_03_w3,2025-09-08,1757246421000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_003,s_003_03_w3,2025-09-08,1757246427000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_03_w3,2025-09-08,1757246433000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_003,s_003_04_w4,2025-09-15,1757851203000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_04_w4,2025-09-15,1757851209000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_003,s_003_04_w4,2025-09-15,1757851215000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_003,s_003_04_w4,2025-09-15,1757851221000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_003,s_003_04_w4,2025-09-15,1757851227000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_04_w4,2025-09-15,1757851233000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_003,s_003_05_w5,2025-09-22,1758456003000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_05_w5,2025-09-22,1758456009000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_003,s_003_05_w5,2025-09-22,1758456015000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_003,s_003_05_w5,2025-09-22,1758456021000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_003,s_003_05_w5,2025-09-22,1758456027000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_05_w5,2025-09-22,1758456033000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_003,s_003_06_w6,2025-09-29,1759057203000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_003_06_w6,2025-09-29,1759057209000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_003,s_003_06_w6,2025-09-29,1759057215000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_003,s_003_06_w6,2025-09-29,1759057221000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_003,s_003_06_w6,2025-09-29,1759057227000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_003_06_w6,2025-09-29,1759057233000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_004,s_004_01_w1,2025-08-25,1756036804000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_01_w1,2025-08-25,1756036810000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_004,s_004_01_w1,2025-08-25,1756036816000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_004_01_w1,2025-08-25,1756036822000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_004_01_w1,2025-08-25,1756036828000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_01_w1,2025-08-25,1756036834000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_004,s_004_02_w2,2025-09-01,1756641604000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_02_w2,2025-09-01,1756641610000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_004,s_004_02_w2,2025-09-01,1756641616000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_004_02_w2,2025-09-01,1756641622000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_004_02_w2,2025-09-01,1756641628000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_02_w2,2025-09-01,1756641634000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_004,s_004_03_w3,2025-09-08,1757246404000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_03_w3,2025-09-08,1757246410000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_004,s_004_03_w3,2025-09-08,1757246416000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_004,s_004_03_w3,2025-09-08,1757246422000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_004,s_004_03_w3,2025-09-08,1757246428000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_03_w3,2025-09-08,1757246434000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_004,s_004_04_w4,2025-09-15,1757851204000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_04_w4,2025-09-15,1757851210000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_004,s_004_04_w4,2025-09-15,1757851216000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_004,s_004_04_w4,2025-09-15,1757851222000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_004,s_004_04_w4,2025-09-15,1757851228000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_04_w4,2025-09-15,1757851234000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_004,s_004_05_w5,2025-09-22,1758456004000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_05_w5,2025-09-22,1758456010000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_004,s_004_05_w5,2025-09-22,1758456016000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_004,s_004_05_w5,2025-09-22,1758456022000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_004,s_004_05_w5,2025-09-22,1758456028000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_05_w5,2025-09-22,1758456034000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_004,s_004_06_w6,2025-09-29,1759057204000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_004_06_w6,2025-09-29,1759057210000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_004,s_004_06_w6,2025-09-29,1759057216000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_004,s_004_06_w6,2025-09-29,1759057222000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_004,s_004_06_w6,2025-09-29,1759057228000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_004,s_004_06_w6,2025-09-29,1759057234000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_005,s_005_01_w1,2025-08-25,1756036805000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_01_w1,2025-08-25,1756036811000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_005,s_005_01_w1,2025-08-25,1756036817000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_005,s_005_01_w1,2025-08-25,1756036823000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_005,s_005_01_w1,2025-08-25,1756036829000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_01_w1,2025-08-25,1756036835000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_005,s_005_02_w2,2025-09-01,1756641605000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_02_w2,2025-09-01,1756641611000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_005,s_005_02_w2,2025-09-01,1756641617000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_005,s_005_02_w2,2025-09-01,1756641623000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_005,s_005_02_w2,2025-09-01,1756641629000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_02_w2,2025-09-01,1756641635000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_005,s_005_03_w3,2025-09-08,1757246405000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_03_w3,2025-09-08,1757246411000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_005,s_005_03_w3,2025-09-08,1757246417000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_005,s_005_03_w3,2025-09-08,1757246423000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_005,s_005_03_w3,2025-09-08,1757246429000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_03_w3,2025-09-08,1757246435000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_005,s_005_04_w4,2025-09-15,1757851205000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_04_w4,2025-09-15,1757851211000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_005,s_005_04_w4,2025-09-15,1757851217000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_005,s_005_04_w4,2025-09-15,1757851223000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_005,s_005_04_w4,2025-09-15,1757851229000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_04_w4,2025-09-15,1757851235000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_005,s_005_05_w5,2025-09-22,1758456005000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_05_w5,2025-09-22,1758456011000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_005,s_005_05_w5,2025-09-22,1758456017000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_005,s_005_05_w5,2025-09-22,1758456023000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_005,s_005_05_w5,2025-09-22,1758456029000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_05_w5,2025-09-22,1758456035000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_005,s_005_06_w6,2025-09-29,1759057205000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_005_06_w6,2025-09-29,1759057211000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_005,s_005_06_w6,2025-09-29,1759057217000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_005,s_005_06_w6,2025-09-29,1759057223000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_005,s_005_06_w6,2025-09-29,1759057229000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_005,s_005_06_w6,2025-09-29,1759057235000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_006,s_006_01_w1,2025-08-25,1756036806000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_01_w1,2025-08-25,1756036812000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_006,s_006_01_w1,2025-08-25,1756036818000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_006,s_006_01_w1,2025-08-25,1756036824000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_006,s_006_01_w1,2025-08-25,1756036830000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_01_w1,2025-08-25,1756036836000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_006,s_006_02_w2,2025-09-01,1756641606000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_02_w2,2025-09-01,1756641612000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_006,s_006_02_w2,2025-09-01,1756641618000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_006,s_006_02_w2,2025-09-01,1756641624000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_006,s_006_02_w2,2025-09-01,1756641630000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_02_w2,2025-09-01,1756641636000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_006,s_006_03_w3,2025-09-08,1757246406000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_03_w3,2025-09-08,1757246412000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_006,s_006_03_w3,2025-09-08,1757246418000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_006,s_006_03_w3,2025-09-08,1757246424000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_006,s_006_03_w3,2025-09-08,1757246430000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_03_w3,2025-09-08,1757246436000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_006,s_006_04_w4,2025-09-15,1757851206000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_04_w4,2025-09-15,1757851212000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_006,s_006_04_w4,2025-09-15,1757851218000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_006,s_006_04_w4,2025-09-15,1757851224000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_006,s_006_04_w4,2025-09-15,1757851230000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_04_w4,2025-09-15,1757851236000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_006,s_006_05_w5,2025-09-22,1758456006000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_05_w5,2025-09-22,1758456012000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_006,s_006_05_w5,2025-09-22,1758456018000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_006,s_006_05_w5,2025-09-22,1758456024000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_006,s_006_05_w5,2025-09-22,1758456030000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_05_w5,2025-09-22,1758456036000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_006,s_006_06_w6,2025-09-29,1759057206000,session_start,0.00,0,0,https://example.com/,Home
+u_006,s_006_06_w6,2025-09-29,1759057212000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_006,s_006_06_w6,2025-09-29,1759057218000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_006,s_006_06_w6,2025-09-29,1759057224000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_006,s_006_06_w6,2025-09-29,1759057230000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_006,s_006_06_w6,2025-09-29,1759057236000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_007,s_007_01_w1,2025-08-25,1756036807000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_01_w1,2025-08-25,1756036813000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_007,s_007_01_w1,2025-08-25,1756036819000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_007,s_007_01_w1,2025-08-25,1756036825000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_007,s_007_01_w1,2025-08-25,1756036831000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_01_w1,2025-08-25,1756036837000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_007,s_007_02_w2,2025-09-01,1756641607000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_02_w2,2025-09-01,1756641613000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_007,s_007_02_w2,2025-09-01,1756641619000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_007,s_007_02_w2,2025-09-01,1756641625000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_007,s_007_02_w2,2025-09-01,1756641631000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_02_w2,2025-09-01,1756641637000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_007,s_007_03_w3,2025-09-08,1757246407000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_03_w3,2025-09-08,1757246413000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_007,s_007_03_w3,2025-09-08,1757246419000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_007,s_007_03_w3,2025-09-08,1757246425000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_007,s_007_03_w3,2025-09-08,1757246431000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_03_w3,2025-09-08,1757246437000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_007,s_007_04_w4,2025-09-15,1757851207000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_04_w4,2025-09-15,1757851213000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_007,s_007_04_w4,2025-09-15,1757851219000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_007,s_007_04_w4,2025-09-15,1757851225000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_007,s_007_04_w4,2025-09-15,1757851231000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_04_w4,2025-09-15,1757851237000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_007,s_007_05_w5,2025-09-22,1758456007000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_05_w5,2025-09-22,1758456013000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_007,s_007_05_w5,2025-09-22,1758456019000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_007,s_007_05_w5,2025-09-22,1758456025000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_007,s_007_05_w5,2025-09-22,1758456031000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_05_w5,2025-09-22,1758456037000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_007,s_007_06_w6,2025-09-29,1759057207000,session_start,0.00,0,0,https://example.com/,Home
+u_007,s_007_06_w6,2025-09-29,1759057213000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_007,s_007_06_w6,2025-09-29,1759057219000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_007,s_007_06_w6,2025-09-29,1759057225000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_007,s_007_06_w6,2025-09-29,1759057231000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_007,s_007_06_w6,2025-09-29,1759057237000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_008,s_008_01_w1,2025-08-25,1756036808000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_01_w1,2025-08-25,1756036814000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_008,s_008_01_w1,2025-08-25,1756036820000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_008,s_008_01_w1,2025-08-25,1756036826000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_008,s_008_01_w1,2025-08-25,1756036832000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_01_w1,2025-08-25,1756036838000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_008,s_008_02_w2,2025-09-01,1756641608000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_02_w2,2025-09-01,1756641614000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_008,s_008_02_w2,2025-09-01,1756641620000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_008,s_008_02_w2,2025-09-01,1756641626000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_008,s_008_02_w2,2025-09-01,1756641632000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_02_w2,2025-09-01,1756641638000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_008,s_008_03_w3,2025-09-08,1757246408000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_03_w3,2025-09-08,1757246414000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_008,s_008_03_w3,2025-09-08,1757246420000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_008,s_008_03_w3,2025-09-08,1757246426000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_008,s_008_03_w3,2025-09-08,1757246432000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_03_w3,2025-09-08,1757246438000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_008,s_008_04_w4,2025-09-15,1757851208000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_04_w4,2025-09-15,1757851214000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_008,s_008_04_w4,2025-09-15,1757851220000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_008,s_008_04_w4,2025-09-15,1757851226000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_008,s_008_04_w4,2025-09-15,1757851232000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_04_w4,2025-09-15,1757851238000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_008,s_008_05_w5,2025-09-22,1758456008000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_05_w5,2025-09-22,1758456014000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_008,s_008_05_w5,2025-09-22,1758456020000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_008,s_008_05_w5,2025-09-22,1758456026000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_008,s_008_05_w5,2025-09-22,1758456032000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_05_w5,2025-09-22,1758456038000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_008,s_008_06_w6,2025-09-29,1759057208000,session_start,0.00,0,0,https://example.com/,Home
+u_008,s_008_06_w6,2025-09-29,1759057214000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_008,s_008_06_w6,2025-09-29,1759057220000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_008,s_008_06_w6,2025-09-29,1759057226000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_008,s_008_06_w6,2025-09-29,1759057232000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_008,s_008_06_w6,2025-09-29,1759057238000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_009,s_009_01_w1,2025-08-25,1756036809000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_01_w1,2025-08-25,1756036815000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_009,s_009_01_w1,2025-08-25,1756036821000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_009,s_009_01_w1,2025-08-25,1756036827000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_009,s_009_01_w1,2025-08-25,1756036833000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_01_w1,2025-08-25,1756036839000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_009,s_009_02_w2,2025-09-01,1756641609000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_02_w2,2025-09-01,1756641615000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_009,s_009_02_w2,2025-09-01,1756641621000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_009,s_009_02_w2,2025-09-01,1756641627000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_009,s_009_02_w2,2025-09-01,1756641633000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_02_w2,2025-09-01,1756641639000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_009,s_009_03_w3,2025-09-08,1757246409000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_03_w3,2025-09-08,1757246415000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_009,s_009_03_w3,2025-09-08,1757246421000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_009,s_009_03_w3,2025-09-08,1757246427000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_009,s_009_03_w3,2025-09-08,1757246433000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_03_w3,2025-09-08,1757246439000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_009,s_009_04_w4,2025-09-15,1757851209000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_04_w4,2025-09-15,1757851215000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_009,s_009_04_w4,2025-09-15,1757851221000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_009,s_009_04_w4,2025-09-15,1757851227000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_009,s_009_04_w4,2025-09-15,1757851233000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_04_w4,2025-09-15,1757851239000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_009,s_009_05_w5,2025-09-22,1758456009000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_05_w5,2025-09-22,1758456015000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_009,s_009_05_w5,2025-09-22,1758456021000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_009,s_009_05_w5,2025-09-22,1758456027000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_009,s_009_05_w5,2025-09-22,1758456033000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_05_w5,2025-09-22,1758456039000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_009,s_009_06_w6,2025-09-29,1759057209000,session_start,0.00,0,0,https://example.com/,Home
+u_009,s_009_06_w6,2025-09-29,1759057215000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_009,s_009_06_w6,2025-09-29,1759057221000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_009,s_009_06_w6,2025-09-29,1759057227000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_009,s_009_06_w6,2025-09-29,1759057233000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_009,s_009_06_w6,2025-09-29,1759057239000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_010,s_010_01_w1,2025-08-25,1756036810000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_01_w1,2025-08-25,1756036816000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_010,s_010_01_w1,2025-08-25,1756036822000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_010,s_010_01_w1,2025-08-25,1756036828000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_010,s_010_01_w1,2025-08-25,1756036834000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_01_w1,2025-08-25,1756036840000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_010,s_010_02_w2,2025-09-01,1756641610000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_02_w2,2025-09-01,1756641616000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_010,s_010_02_w2,2025-09-01,1756641622000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_010,s_010_02_w2,2025-09-01,1756641628000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_010,s_010_02_w2,2025-09-01,1756641634000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_02_w2,2025-09-01,1756641640000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_010,s_010_03_w3,2025-09-08,1757246410000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_03_w3,2025-09-08,1757246416000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_010,s_010_03_w3,2025-09-08,1757246422000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_010,s_010_03_w3,2025-09-08,1757246428000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_010,s_010_03_w3,2025-09-08,1757246434000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_03_w3,2025-09-08,1757246440000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_010,s_010_04_w4,2025-09-15,1757851210000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_04_w4,2025-09-15,1757851216000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_010,s_010_04_w4,2025-09-15,1757851222000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_010,s_010_04_w4,2025-09-15,1757851228000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_010,s_010_04_w4,2025-09-15,1757851234000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_04_w4,2025-09-15,1757851240000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_010,s_010_05_w5,2025-09-22,1758456010000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_05_w5,2025-09-22,1758456016000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_010,s_010_05_w5,2025-09-22,1758456022000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_010,s_010_05_w5,2025-09-22,1758456028000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_010,s_010_05_w5,2025-09-22,1758456034000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_05_w5,2025-09-22,1758456040000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_010,s_010_06_w6,2025-09-29,1759057210000,session_start,0.00,0,0,https://example.com/,Home
+u_010,s_010_06_w6,2025-09-29,1759057216000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_010,s_010_06_w6,2025-09-29,1759057222000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_010,s_010_06_w6,2025-09-29,1759057228000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_010,s_010_06_w6,2025-09-29,1759057234000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_010,s_010_06_w6,2025-09-29,1759057240000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_011,s_011_01_w1,2025-08-25,1756036811000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_01_w1,2025-08-25,1756036817000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_011,s_011_01_w1,2025-08-25,1756036823000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_011,s_011_01_w1,2025-08-25,1756036829000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_011,s_011_01_w1,2025-08-25,1756036835000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_01_w1,2025-08-25,1756036841000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_011,s_011_02_w2,2025-09-01,1756641611000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_02_w2,2025-09-01,1756641617000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_011,s_011_02_w2,2025-09-01,1756641623000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_011,s_011_02_w2,2025-09-01,1756641629000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_011,s_011_02_w2,2025-09-01,1756641635000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_02_w2,2025-09-01,1756641641000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_011,s_011_03_w3,2025-09-08,1757246411000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_03_w3,2025-09-08,1757246417000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_011,s_011_03_w3,2025-09-08,1757246423000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_011,s_011_03_w3,2025-09-08,1757246429000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_011,s_011_03_w3,2025-09-08,1757246435000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_03_w3,2025-09-08,1757246441000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_011,s_011_04_w4,2025-09-15,1757851211000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_04_w4,2025-09-15,1757851217000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_011,s_011_04_w4,2025-09-15,1757851223000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_011,s_011_04_w4,2025-09-15,1757851229000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_011,s_011_04_w4,2025-09-15,1757851235000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_04_w4,2025-09-15,1757851241000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_011,s_011_05_w5,2025-09-22,1758456011000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_05_w5,2025-09-22,1758456017000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_011,s_011_05_w5,2025-09-22,1758456023000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_011,s_011_05_w5,2025-09-22,1758456029000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_011,s_011_05_w5,2025-09-22,1758456035000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_05_w5,2025-09-22,1758456041000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_011,s_011_06_w6,2025-09-29,1759057211000,session_start,0.00,0,0,https://example.com/,Home
+u_011,s_011_06_w6,2025-09-29,1759057217000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_011,s_011_06_w6,2025-09-29,1759057223000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_011,s_011_06_w6,2025-09-29,1759057229000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_011,s_011_06_w6,2025-09-29,1759057235000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_011,s_011_06_w6,2025-09-29,1759057241000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_012,s_012_01_w1,2025-08-25,1756036812000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_01_w1,2025-08-25,1756036818000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_012,s_012_01_w1,2025-08-25,1756036824000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_012,s_012_01_w1,2025-08-25,1756036830000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_012,s_012_01_w1,2025-08-25,1756036836000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_01_w1,2025-08-25,1756036842000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_012,s_012_02_w2,2025-09-01,1756641612000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_02_w2,2025-09-01,1756641618000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_012,s_012_02_w2,2025-09-01,1756641624000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_012,s_012_02_w2,2025-09-01,1756641630000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_012,s_012_02_w2,2025-09-01,1756641636000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_02_w2,2025-09-01,1756641642000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_012,s_012_03_w3,2025-09-08,1757246412000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_03_w3,2025-09-08,1757246418000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_012,s_012_03_w3,2025-09-08,1757246424000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_012,s_012_03_w3,2025-09-08,1757246430000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_012,s_012_03_w3,2025-09-08,1757246436000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_03_w3,2025-09-08,1757246442000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_012,s_012_04_w4,2025-09-15,1757851212000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_04_w4,2025-09-15,1757851218000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_012,s_012_04_w4,2025-09-15,1757851224000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_012,s_012_04_w4,2025-09-15,1757851230000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_012,s_012_04_w4,2025-09-15,1757851236000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_04_w4,2025-09-15,1757851242000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_012,s_012_05_w5,2025-09-22,1758456012000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_05_w5,2025-09-22,1758456018000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_012,s_012_05_w5,2025-09-22,1758456024000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_012,s_012_05_w5,2025-09-22,1758456030000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_012,s_012_05_w5,2025-09-22,1758456036000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_05_w5,2025-09-22,1758456042000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_012,s_012_06_w6,2025-09-29,1759057212000,session_start,0.00,0,0,https://example.com/,Home
+u_012,s_012_06_w6,2025-09-29,1759057218000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_012,s_012_06_w6,2025-09-29,1759057224000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_012,s_012_06_w6,2025-09-29,1759057230000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_012,s_012_06_w6,2025-09-29,1759057236000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_012,s_012_06_w6,2025-09-29,1759057242000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_013,s_013_01_w1,2025-08-25,1756036813000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_01_w1,2025-08-25,1756036819000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_013,s_013_01_w1,2025-08-25,1756036825000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_013,s_013_01_w1,2025-08-25,1756036831000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_013,s_013_01_w1,2025-08-25,1756036837000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_01_w1,2025-08-25,1756036843000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_013,s_013_02_w2,2025-09-01,1756641613000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_02_w2,2025-09-01,1756641619000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_013,s_013_02_w2,2025-09-01,1756641625000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_013,s_013_02_w2,2025-09-01,1756641631000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_013,s_013_02_w2,2025-09-01,1756641637000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_02_w2,2025-09-01,1756641643000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_013,s_013_03_w3,2025-09-08,1757246413000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_03_w3,2025-09-08,1757246419000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_013,s_013_03_w3,2025-09-08,1757246425000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_013,s_013_03_w3,2025-09-08,1757246431000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_013,s_013_03_w3,2025-09-08,1757246437000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_03_w3,2025-09-08,1757246443000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_013,s_013_04_w4,2025-09-15,1757851213000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_04_w4,2025-09-15,1757851219000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_013,s_013_04_w4,2025-09-15,1757851225000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_013,s_013_04_w4,2025-09-15,1757851231000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_013,s_013_04_w4,2025-09-15,1757851237000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_04_w4,2025-09-15,1757851243000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_013,s_013_05_w5,2025-09-22,1758456013000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_05_w5,2025-09-22,1758456019000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_013,s_013_05_w5,2025-09-22,1758456025000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_013,s_013_05_w5,2025-09-22,1758456031000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_013,s_013_05_w5,2025-09-22,1758456037000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_05_w5,2025-09-22,1758456043000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_013,s_013_06_w6,2025-09-29,1759057213000,session_start,0.00,0,0,https://example.com/,Home
+u_013,s_013_06_w6,2025-09-29,1759057219000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_013,s_013_06_w6,2025-09-29,1759057225000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_013,s_013_06_w6,2025-09-29,1759057231000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_013,s_013_06_w6,2025-09-29,1759057237000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_013,s_013_06_w6,2025-09-29,1759057243000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_014,s_014_01_w1,2025-08-25,1756036814000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_01_w1,2025-08-25,1756036820000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_014,s_014_01_w1,2025-08-25,1756036826000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_014,s_014_01_w1,2025-08-25,1756036832000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_014,s_014_01_w1,2025-08-25,1756036838000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_01_w1,2025-08-25,1756036844000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_014,s_014_02_w2,2025-09-01,1756641614000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_02_w2,2025-09-01,1756641620000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_014,s_014_02_w2,2025-09-01,1756641626000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_014,s_014_02_w2,2025-09-01,1756641632000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_014,s_014_02_w2,2025-09-01,1756641638000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_02_w2,2025-09-01,1756641644000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_014,s_014_03_w3,2025-09-08,1757246414000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_03_w3,2025-09-08,1757246420000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_014,s_014_03_w3,2025-09-08,1757246426000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_014,s_014_03_w3,2025-09-08,1757246432000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_014,s_014_03_w3,2025-09-08,1757246438000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_03_w3,2025-09-08,1757246444000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_014,s_014_04_w4,2025-09-15,1757851214000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_04_w4,2025-09-15,1757851220000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_014,s_014_04_w4,2025-09-15,1757851226000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_014,s_014_04_w4,2025-09-15,1757851232000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_014,s_014_04_w4,2025-09-15,1757851238000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_04_w4,2025-09-15,1757851244000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_014,s_014_05_w5,2025-09-22,1758456014000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_05_w5,2025-09-22,1758456020000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_014,s_014_05_w5,2025-09-22,1758456026000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_014,s_014_05_w5,2025-09-22,1758456032000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_014,s_014_05_w5,2025-09-22,1758456038000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_05_w5,2025-09-22,1758456044000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_014,s_014_06_w6,2025-09-29,1759057214000,session_start,0.00,0,0,https://example.com/,Home
+u_014,s_014_06_w6,2025-09-29,1759057220000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_014,s_014_06_w6,2025-09-29,1759057226000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_014,s_014_06_w6,2025-09-29,1759057232000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_014,s_014_06_w6,2025-09-29,1759057238000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_014,s_014_06_w6,2025-09-29,1759057244000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_015,s_015_01_w1,2025-08-25,1756036815000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_01_w1,2025-08-25,1756036821000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_015,s_015_01_w1,2025-08-25,1756036827000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_015,s_015_01_w1,2025-08-25,1756036833000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_015,s_015_01_w1,2025-08-25,1756036839000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_01_w1,2025-08-25,1756036845000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_015,s_015_02_w2,2025-09-01,1756641615000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_02_w2,2025-09-01,1756641621000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_015,s_015_02_w2,2025-09-01,1756641627000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_015,s_015_02_w2,2025-09-01,1756641633000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_015,s_015_02_w2,2025-09-01,1756641639000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_02_w2,2025-09-01,1756641645000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_015,s_015_03_w3,2025-09-08,1757246415000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_03_w3,2025-09-08,1757246421000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_015,s_015_03_w3,2025-09-08,1757246427000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_015,s_015_03_w3,2025-09-08,1757246433000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_015,s_015_03_w3,2025-09-08,1757246439000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_03_w3,2025-09-08,1757246445000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_015,s_015_04_w4,2025-09-15,1757851215000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_04_w4,2025-09-15,1757851221000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_015,s_015_04_w4,2025-09-15,1757851227000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_015,s_015_04_w4,2025-09-15,1757851233000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_015,s_015_04_w4,2025-09-15,1757851239000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_04_w4,2025-09-15,1757851245000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_015,s_015_05_w5,2025-09-22,1758456015000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_05_w5,2025-09-22,1758456021000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_015,s_015_05_w5,2025-09-22,1758456027000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_015,s_015_05_w5,2025-09-22,1758456033000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_015,s_015_05_w5,2025-09-22,1758456039000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_05_w5,2025-09-22,1758456045000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_015,s_015_06_w6,2025-09-29,1759057215000,session_start,0.00,0,0,https://example.com/,Home
+u_015,s_015_06_w6,2025-09-29,1759057221000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_015,s_015_06_w6,2025-09-29,1759057227000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_015,s_015_06_w6,2025-09-29,1759057233000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_015,s_015_06_w6,2025-09-29,1759057239000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_015,s_015_06_w6,2025-09-29,1759057245000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_016,s_016_01_w1,2025-08-25,1756036816000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_01_w1,2025-08-25,1756036822000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_016,s_016_01_w1,2025-08-25,1756036828000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_016,s_016_01_w1,2025-08-25,1756036834000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_016,s_016_01_w1,2025-08-25,1756036840000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_01_w1,2025-08-25,1756036846000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_016,s_016_02_w2,2025-09-01,1756641616000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_02_w2,2025-09-01,1756641622000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_016,s_016_02_w2,2025-09-01,1756641628000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_016,s_016_02_w2,2025-09-01,1756641634000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_016,s_016_02_w2,2025-09-01,1756641640000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_02_w2,2025-09-01,1756641646000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_016,s_016_03_w3,2025-09-08,1757246416000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_03_w3,2025-09-08,1757246422000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_016,s_016_03_w3,2025-09-08,1757246428000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_016,s_016_03_w3,2025-09-08,1757246434000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_016,s_016_03_w3,2025-09-08,1757246440000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_03_w3,2025-09-08,1757246446000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_016,s_016_04_w4,2025-09-15,1757851216000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_04_w4,2025-09-15,1757851222000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_016,s_016_04_w4,2025-09-15,1757851228000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_016,s_016_04_w4,2025-09-15,1757851234000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_016,s_016_04_w4,2025-09-15,1757851240000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_04_w4,2025-09-15,1757851246000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_016,s_016_05_w5,2025-09-22,1758456016000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_05_w5,2025-09-22,1758456022000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_016,s_016_05_w5,2025-09-22,1758456028000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_016,s_016_05_w5,2025-09-22,1758456034000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_016,s_016_05_w5,2025-09-22,1758456040000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_05_w5,2025-09-22,1758456046000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_016,s_016_06_w6,2025-09-29,1759057216000,session_start,0.00,0,0,https://example.com/,Home
+u_016,s_016_06_w6,2025-09-29,1759057222000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_016,s_016_06_w6,2025-09-29,1759057228000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_016,s_016_06_w6,2025-09-29,1759057234000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_016,s_016_06_w6,2025-09-29,1759057240000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_016,s_016_06_w6,2025-09-29,1759057246000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_017,s_017_01_w1,2025-08-25,1756036817000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_01_w1,2025-08-25,1756036823000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_017,s_017_01_w1,2025-08-25,1756036829000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_017,s_017_01_w1,2025-08-25,1756036835000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_017,s_017_01_w1,2025-08-25,1756036841000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_01_w1,2025-08-25,1756036847000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_017,s_017_02_w2,2025-09-01,1756641617000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_02_w2,2025-09-01,1756641623000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_017,s_017_02_w2,2025-09-01,1756641629000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_017,s_017_02_w2,2025-09-01,1756641635000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_017,s_017_02_w2,2025-09-01,1756641641000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_02_w2,2025-09-01,1756641647000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_017,s_017_03_w3,2025-09-08,1757246417000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_03_w3,2025-09-08,1757246423000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_017,s_017_03_w3,2025-09-08,1757246429000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_017,s_017_03_w3,2025-09-08,1757246435000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_017,s_017_03_w3,2025-09-08,1757246441000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_03_w3,2025-09-08,1757246447000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_017,s_017_04_w4,2025-09-15,1757851217000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_04_w4,2025-09-15,1757851223000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_017,s_017_04_w4,2025-09-15,1757851229000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_017,s_017_04_w4,2025-09-15,1757851235000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_017,s_017_04_w4,2025-09-15,1757851241000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_04_w4,2025-09-15,1757851247000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_017,s_017_05_w5,2025-09-22,1758456017000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_05_w5,2025-09-22,1758456023000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_017,s_017_05_w5,2025-09-22,1758456029000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_017,s_017_05_w5,2025-09-22,1758456035000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_017,s_017_05_w5,2025-09-22,1758456041000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_05_w5,2025-09-22,1758456047000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_017,s_017_06_w6,2025-09-29,1759057217000,session_start,0.00,0,0,https://example.com/,Home
+u_017,s_017_06_w6,2025-09-29,1759057223000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_017,s_017_06_w6,2025-09-29,1759057229000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_017,s_017_06_w6,2025-09-29,1759057235000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_017,s_017_06_w6,2025-09-29,1759057241000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_017,s_017_06_w6,2025-09-29,1759057247000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_018,s_018_01_w1,2025-08-25,1756036818000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_01_w1,2025-08-25,1756036824000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_018,s_018_01_w1,2025-08-25,1756036830000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_018,s_018_01_w1,2025-08-25,1756036836000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_018,s_018_01_w1,2025-08-25,1756036842000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_01_w1,2025-08-25,1756036848000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_018,s_018_02_w2,2025-09-01,1756641618000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_02_w2,2025-09-01,1756641624000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_018,s_018_02_w2,2025-09-01,1756641630000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_018,s_018_02_w2,2025-09-01,1756641636000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_018,s_018_02_w2,2025-09-01,1756641642000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_02_w2,2025-09-01,1756641648000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_018,s_018_03_w3,2025-09-08,1757246418000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_03_w3,2025-09-08,1757246424000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_018,s_018_03_w3,2025-09-08,1757246430000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_018,s_018_03_w3,2025-09-08,1757246436000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_018,s_018_03_w3,2025-09-08,1757246442000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_03_w3,2025-09-08,1757246448000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_018,s_018_04_w4,2025-09-15,1757851218000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_04_w4,2025-09-15,1757851224000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_018,s_018_04_w4,2025-09-15,1757851230000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_018,s_018_04_w4,2025-09-15,1757851236000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_018,s_018_04_w4,2025-09-15,1757851242000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_04_w4,2025-09-15,1757851248000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_018,s_018_05_w5,2025-09-22,1758456018000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_05_w5,2025-09-22,1758456024000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_018,s_018_05_w5,2025-09-22,1758456030000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_018,s_018_05_w5,2025-09-22,1758456036000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_018,s_018_05_w5,2025-09-22,1758456042000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_05_w5,2025-09-22,1758456048000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_018,s_018_06_w6,2025-09-29,1759057218000,session_start,0.00,0,0,https://example.com/,Home
+u_018,s_018_06_w6,2025-09-29,1759057224000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_018,s_018_06_w6,2025-09-29,1759057230000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_018,s_018_06_w6,2025-09-29,1759057236000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_018,s_018_06_w6,2025-09-29,1759057242000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_018,s_018_06_w6,2025-09-29,1759057248000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_019,s_019_01_w1,2025-08-25,1756036819000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_01_w1,2025-08-25,1756036825000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_019,s_019_01_w1,2025-08-25,1756036831000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_019,s_019_01_w1,2025-08-25,1756036837000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_019,s_019_01_w1,2025-08-25,1756036843000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_01_w1,2025-08-25,1756036849000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_019,s_019_02_w2,2025-09-01,1756641619000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_02_w2,2025-09-01,1756641625000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_019,s_019_02_w2,2025-09-01,1756641631000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_019,s_019_02_w2,2025-09-01,1756641637000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_019,s_019_02_w2,2025-09-01,1756641643000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_02_w2,2025-09-01,1756641649000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_019,s_019_03_w3,2025-09-08,1757246419000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_03_w3,2025-09-08,1757246425000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_019,s_019_03_w3,2025-09-08,1757246431000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_019,s_019_03_w3,2025-09-08,1757246437000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_019,s_019_03_w3,2025-09-08,1757246443000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_03_w3,2025-09-08,1757246449000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_019,s_019_04_w4,2025-09-15,1757851219000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_04_w4,2025-09-15,1757851225000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_019,s_019_04_w4,2025-09-15,1757851231000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_019,s_019_04_w4,2025-09-15,1757851237000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_019,s_019_04_w4,2025-09-15,1757851243000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_04_w4,2025-09-15,1757851249000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_019,s_019_05_w5,2025-09-22,1758456019000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_05_w5,2025-09-22,1758456025000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_019,s_019_05_w5,2025-09-22,1758456031000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_019,s_019_05_w5,2025-09-22,1758456037000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_019,s_019_05_w5,2025-09-22,1758456043000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_05_w5,2025-09-22,1758456049000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_019,s_019_06_w6,2025-09-29,1759057219000,session_start,0.00,0,0,https://example.com/,Home
+u_019,s_019_06_w6,2025-09-29,1759057225000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_019,s_019_06_w6,2025-09-29,1759057231000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_019,s_019_06_w6,2025-09-29,1759057237000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_019,s_019_06_w6,2025-09-29,1759057243000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_019,s_019_06_w6,2025-09-29,1759057249000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_020,s_020_01_w1,2025-08-25,1756036820000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_01_w1,2025-08-25,1756036826000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_020,s_020_01_w1,2025-08-25,1756036832000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_020,s_020_01_w1,2025-08-25,1756036838000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_020,s_020_01_w1,2025-08-25,1756036844000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_01_w1,2025-08-25,1756036850000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_020,s_020_02_w2,2025-09-01,1756641620000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_02_w2,2025-09-01,1756641626000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_020,s_020_02_w2,2025-09-01,1756641632000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_020,s_020_02_w2,2025-09-01,1756641638000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_020,s_020_02_w2,2025-09-01,1756641644000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_02_w2,2025-09-01,1756641650000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_020,s_020_03_w3,2025-09-08,1757246420000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_03_w3,2025-09-08,1757246426000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_020,s_020_03_w3,2025-09-08,1757246432000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_020,s_020_03_w3,2025-09-08,1757246438000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_020,s_020_03_w3,2025-09-08,1757246444000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_03_w3,2025-09-08,1757246450000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_020,s_020_04_w4,2025-09-15,1757851220000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_04_w4,2025-09-15,1757851226000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_020,s_020_04_w4,2025-09-15,1757851232000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_020,s_020_04_w4,2025-09-15,1757851238000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_020,s_020_04_w4,2025-09-15,1757851244000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_04_w4,2025-09-15,1757851250000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_020,s_020_05_w5,2025-09-22,1758456020000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_05_w5,2025-09-22,1758456026000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_020,s_020_05_w5,2025-09-22,1758456032000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_020,s_020_05_w5,2025-09-22,1758456038000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_020,s_020_05_w5,2025-09-22,1758456044000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_05_w5,2025-09-22,1758456050000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_020,s_020_06_w6,2025-09-29,1759057220000,session_start,0.00,0,0,https://example.com/,Home
+u_020,s_020_06_w6,2025-09-29,1759057226000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_020,s_020_06_w6,2025-09-29,1759057232000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_020,s_020_06_w6,2025-09-29,1759057238000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_020,s_020_06_w6,2025-09-29,1759057244000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_020,s_020_06_w6,2025-09-29,1759057250000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_021,s_021_01_w1,2025-08-25,1756036821000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_01_w1,2025-08-25,1756036827000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_021,s_021_01_w1,2025-08-25,1756036833000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_021,s_021_01_w1,2025-08-25,1756036839000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_021,s_021_01_w1,2025-08-25,1756036845000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_01_w1,2025-08-25,1756036851000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_021,s_021_02_w2,2025-09-01,1756641621000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_02_w2,2025-09-01,1756641627000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_021,s_021_02_w2,2025-09-01,1756641633000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_021,s_021_02_w2,2025-09-01,1756641639000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_021,s_021_02_w2,2025-09-01,1756641645000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_02_w2,2025-09-01,1756641651000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_021,s_021_03_w3,2025-09-08,1757246421000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_03_w3,2025-09-08,1757246427000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_021,s_021_03_w3,2025-09-08,1757246433000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_021,s_021_03_w3,2025-09-08,1757246439000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_021,s_021_03_w3,2025-09-08,1757246445000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_03_w3,2025-09-08,1757246451000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_021,s_021_04_w4,2025-09-15,1757851221000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_04_w4,2025-09-15,1757851227000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_021,s_021_04_w4,2025-09-15,1757851233000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_021,s_021_04_w4,2025-09-15,1757851239000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_021,s_021_04_w4,2025-09-15,1757851245000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_04_w4,2025-09-15,1757851251000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_021,s_021_05_w5,2025-09-22,1758456021000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_05_w5,2025-09-22,1758456027000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_021,s_021_05_w5,2025-09-22,1758456033000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_021,s_021_05_w5,2025-09-22,1758456039000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_021,s_021_05_w5,2025-09-22,1758456045000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_05_w5,2025-09-22,1758456051000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_021,s_021_06_w6,2025-09-29,1759057221000,session_start,0.00,0,0,https://example.com/,Home
+u_021,s_021_06_w6,2025-09-29,1759057227000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_021,s_021_06_w6,2025-09-29,1759057233000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_021,s_021_06_w6,2025-09-29,1759057239000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_021,s_021_06_w6,2025-09-29,1759057245000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_021,s_021_06_w6,2025-09-29,1759057251000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_022,s_022_01_w1,2025-08-25,1756036822000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_01_w1,2025-08-25,1756036828000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_022,s_022_01_w1,2025-08-25,1756036834000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_022,s_022_01_w1,2025-08-25,1756036840000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_022,s_022_01_w1,2025-08-25,1756036846000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_01_w1,2025-08-25,1756036852000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_022,s_022_02_w2,2025-09-01,1756641622000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_02_w2,2025-09-01,1756641628000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_022,s_022_02_w2,2025-09-01,1756641634000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_022,s_022_02_w2,2025-09-01,1756641640000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_022,s_022_02_w2,2025-09-01,1756641646000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_02_w2,2025-09-01,1756641652000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_022,s_022_03_w3,2025-09-08,1757246422000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_03_w3,2025-09-08,1757246428000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_022,s_022_03_w3,2025-09-08,1757246434000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_022,s_022_03_w3,2025-09-08,1757246440000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_022,s_022_03_w3,2025-09-08,1757246446000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_03_w3,2025-09-08,1757246452000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_022,s_022_04_w4,2025-09-15,1757851222000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_04_w4,2025-09-15,1757851228000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_022,s_022_04_w4,2025-09-15,1757851234000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_022,s_022_04_w4,2025-09-15,1757851240000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_022,s_022_04_w4,2025-09-15,1757851246000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_04_w4,2025-09-15,1757851252000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_022,s_022_05_w5,2025-09-22,1758456022000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_05_w5,2025-09-22,1758456028000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_022,s_022_05_w5,2025-09-22,1758456034000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_022,s_022_05_w5,2025-09-22,1758456040000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_022,s_022_05_w5,2025-09-22,1758456046000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_05_w5,2025-09-22,1758456052000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_022,s_022_06_w6,2025-09-29,1759057222000,session_start,0.00,0,0,https://example.com/,Home
+u_022,s_022_06_w6,2025-09-29,1759057228000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_022,s_022_06_w6,2025-09-29,1759057234000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_022,s_022_06_w6,2025-09-29,1759057240000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_022,s_022_06_w6,2025-09-29,1759057246000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_022,s_022_06_w6,2025-09-29,1759057252000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_023,s_023_01_w1,2025-08-25,1756036823000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_01_w1,2025-08-25,1756036829000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_023,s_023_01_w1,2025-08-25,1756036835000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_023,s_023_01_w1,2025-08-25,1756036841000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_023,s_023_01_w1,2025-08-25,1756036847000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_01_w1,2025-08-25,1756036853000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_023,s_023_02_w2,2025-09-01,1756641623000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_02_w2,2025-09-01,1756641629000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_023,s_023_02_w2,2025-09-01,1756641635000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_023,s_023_02_w2,2025-09-01,1756641641000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_023,s_023_02_w2,2025-09-01,1756641647000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_02_w2,2025-09-01,1756641653000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_023,s_023_03_w3,2025-09-08,1757246423000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_03_w3,2025-09-08,1757246429000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_023,s_023_03_w3,2025-09-08,1757246435000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_023,s_023_03_w3,2025-09-08,1757246441000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_023,s_023_03_w3,2025-09-08,1757246447000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_03_w3,2025-09-08,1757246453000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_023,s_023_04_w4,2025-09-15,1757851223000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_04_w4,2025-09-15,1757851229000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_023,s_023_04_w4,2025-09-15,1757851235000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_023,s_023_04_w4,2025-09-15,1757851241000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_023,s_023_04_w4,2025-09-15,1757851247000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_04_w4,2025-09-15,1757851253000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_023,s_023_05_w5,2025-09-22,1758456023000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_05_w5,2025-09-22,1758456029000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_023,s_023_05_w5,2025-09-22,1758456035000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_023,s_023_05_w5,2025-09-22,1758456041000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_023,s_023_05_w5,2025-09-22,1758456047000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_05_w5,2025-09-22,1758456053000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_023,s_023_06_w6,2025-09-29,1759057223000,session_start,0.00,0,0,https://example.com/,Home
+u_023,s_023_06_w6,2025-09-29,1759057229000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_023,s_023_06_w6,2025-09-29,1759057235000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_023,s_023_06_w6,2025-09-29,1759057241000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_023,s_023_06_w6,2025-09-29,1759057247000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_023,s_023_06_w6,2025-09-29,1759057253000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_024,s_024_01_w1,2025-08-25,1756036824000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_01_w1,2025-08-25,1756036830000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_024,s_024_01_w1,2025-08-25,1756036836000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_024,s_024_01_w1,2025-08-25,1756036842000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_024,s_024_01_w1,2025-08-25,1756036848000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_01_w1,2025-08-25,1756036854000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_024,s_024_02_w2,2025-09-01,1756641624000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_02_w2,2025-09-01,1756641630000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_024,s_024_02_w2,2025-09-01,1756641636000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_024,s_024_02_w2,2025-09-01,1756641642000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_024,s_024_02_w2,2025-09-01,1756641648000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_02_w2,2025-09-01,1756641654000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_024,s_024_03_w3,2025-09-08,1757246424000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_03_w3,2025-09-08,1757246430000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_024,s_024_03_w3,2025-09-08,1757246436000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_024,s_024_03_w3,2025-09-08,1757246442000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_024,s_024_03_w3,2025-09-08,1757246448000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_03_w3,2025-09-08,1757246454000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_024,s_024_04_w4,2025-09-15,1757851224000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_04_w4,2025-09-15,1757851230000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_024,s_024_04_w4,2025-09-15,1757851236000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_024,s_024_04_w4,2025-09-15,1757851242000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_024,s_024_04_w4,2025-09-15,1757851248000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_04_w4,2025-09-15,1757851254000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_024,s_024_05_w5,2025-09-22,1758456024000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_05_w5,2025-09-22,1758456030000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_024,s_024_05_w5,2025-09-22,1758456036000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_024,s_024_05_w5,2025-09-22,1758456042000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_024,s_024_05_w5,2025-09-22,1758456048000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_05_w5,2025-09-22,1758456054000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_024,s_024_06_w6,2025-09-29,1759057224000,session_start,0.00,0,0,https://example.com/,Home
+u_024,s_024_06_w6,2025-09-29,1759057230000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_024,s_024_06_w6,2025-09-29,1759057236000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_024,s_024_06_w6,2025-09-29,1759057242000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_024,s_024_06_w6,2025-09-29,1759057248000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_024,s_024_06_w6,2025-09-29,1759057254000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_025,s_025_01_w1,2025-08-25,1756036825000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_01_w1,2025-08-25,1756036831000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_025,s_025_01_w1,2025-08-25,1756036837000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_025,s_025_01_w1,2025-08-25,1756036843000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_025,s_025_01_w1,2025-08-25,1756036849000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_01_w1,2025-08-25,1756036855000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_025,s_025_02_w2,2025-09-01,1756641625000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_02_w2,2025-09-01,1756641631000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_025,s_025_02_w2,2025-09-01,1756641637000,view_item,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_025,s_025_02_w2,2025-09-01,1756641643000,add_to_cart,0.00,1,1,https://example.com/product/sku1001,Foam Roller
+u_025,s_025_02_w2,2025-09-01,1756641649000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_02_w2,2025-09-01,1756641655000,purchase,29.49,1,1,https://example.com/checkout/complete,Order Confirmation
+u_025,s_025_03_w3,2025-09-08,1757246425000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_03_w3,2025-09-08,1757246431000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_025,s_025_03_w3,2025-09-08,1757246437000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_025,s_025_03_w3,2025-09-08,1757246443000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_025,s_025_03_w3,2025-09-08,1757246449000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_03_w3,2025-09-08,1757246455000,abandon_checkout,0.00,1,0,https://example.com/checkout,Checkout
+u_025,s_025_04_w4,2025-09-15,1757851225000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_04_w4,2025-09-15,1757851231000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_025,s_025_04_w4,2025-09-15,1757851237000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_025,s_025_04_w4,2025-09-15,1757851243000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_025,s_025_04_w4,2025-09-15,1757851249000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_04_w4,2025-09-15,1757851255000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_025,s_025_05_w5,2025-09-22,1758456025000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_05_w5,2025-09-22,1758456031000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_025,s_025_05_w5,2025-09-22,1758456037000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_025,s_025_05_w5,2025-09-22,1758456043000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_025,s_025_05_w5,2025-09-22,1758456049000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_05_w5,2025-09-22,1758456055000,purchase,74.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_025,s_025_06_w6,2025-09-29,1759057225000,session_start,0.00,0,0,https://example.com/,Home
+u_025,s_025_06_w6,2025-09-29,1759057231000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_025,s_025_06_w6,2025-09-29,1759057237000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_025,s_025_06_w6,2025-09-29,1759057243000,add_to_cart,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_025,s_025_06_w6,2025-09-29,1759057249000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_025,s_025_06_w6,2025-09-29,1759057255000,purchase,19.99,1,1,https://example.com/checkout/complete,Order Confirmation
