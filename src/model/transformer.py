@@ -157,13 +157,17 @@ class SimpleLLM(nn.Module):
     
     def forward(self, input_ids: torch.Tensor, 
                 attention_mask: Optional[torch.Tensor] = None,
-                return_dict: bool = True) -> Dict[str, torch.Tensor]:
+                return_dict: bool = True,
+                return_hidden_states: bool = False,
+                compute_logits: bool = True) -> Dict[str, torch.Tensor]:
         """Forward pass through the model.
         
         Args:
             input_ids: Input token IDs [batch_size, seq_len]
             attention_mask: Attention mask [batch_size, seq_len]
             return_dict: Whether to return a dictionary
+            return_hidden_states: If True, include final hidden states (after layer norm, before lm_head)
+            compute_logits: Skip lm_head projection if False (saves time for pure encoding / classification)
             
         Returns:
             Dictionary containing logits and optionally loss
@@ -182,15 +186,25 @@ class SimpleLLM(nn.Module):
             x = block(x, attention_mask)
         
         # Apply final layer normalization
-        x = self.ln_f(x)
+        x = self.ln_f(x) # final hidden states
+        hidden_states = x # alias for clarity
         
         # Project to vocabulary size
-        logits = self.lm_head(x)  # [batch_size, seq_len, vocab_size]
-        
+        logits = None
+        if compute_logits:
+            logits = self.lm_head(hidden_states)  # [batch_size, seq_len, vocab_size]
+
         if return_dict:
-            return {"logits": logits}
+            out = {}
+            if logits is not None:
+                out["logits"] = logits
+            if return_hidden_states:
+                out["hidden_states"] = hidden_states
+            return out
         else:
-            return logits
+            if return_hidden_states and not compute_logits:
+                return hidden_states
+            return logits if logits is not None else hidden_states
     
     def generate(self, input_ids: torch.Tensor, max_new_tokens: int = 50,
                  temperature: float = 1.0, top_k: Optional[int] = None, 

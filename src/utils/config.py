@@ -18,6 +18,7 @@ class ModelConfig:
     n_heads: int = 6         # Number of attention heads
     d_ff: int = 1536         # Feed-forward dimension (usually 4 * d_model)
     dropout: float = 0.1     # Dropout probability
+    num_classes: int = 2     # Number of classes for classification tasks
     
     # Training
     batch_size: int = 8
@@ -44,7 +45,6 @@ class ModelConfig:
         assert self.d_model % self.n_heads == 0, "d_model must be divisible by n_heads"
         assert self.d_ff > 0, "Feed-forward dimension must be positive"
         assert self.n_layers > 0, "Number of layers must be positive"
-
 
 # Default configuration instance
 default_config = ModelConfig()
@@ -84,4 +84,40 @@ def get_large_config() -> ModelConfig:
         d_ff=3072,
         max_seq_len=1024,
         batch_size=4
+    )
+
+def get_small_classifier_config() -> ModelConfig:
+    """Get a small model configuration for text classification."""
+    return ModelConfig(
+        d_model=128,
+        n_layers=2,
+        n_heads=4,
+        d_ff=512,
+        max_seq_len=256,
+        batch_size=4,
+        max_epochs=5
+    )
+
+def get_medium_classifier_config() -> ModelConfig:
+    """Get a medium model configuration for text classification."""
+    return ModelConfig(
+        d_model=512,
+        n_layers=8,
+        n_heads=8,
+        d_ff=2048,
+        max_seq_len=512,
+        batch_size=4,
+        max_epochs=5
+    )
+
+def get_large_classifier_config() -> ModelConfig:
+    """Get a large model configuration for text classification."""
+    return ModelConfig(
+        d_model=768,
+        n_layers=12,
+        n_heads=12,
+        d_ff=3072,
+        max_seq_len=512,
+        batch_size=4,
+        max_epochs=5
     )

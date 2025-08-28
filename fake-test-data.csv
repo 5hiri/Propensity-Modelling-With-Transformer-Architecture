@@ -1,0 +1,43 @@
+user_pseudo_id,session_id,date_formatted,event_timestamp,event_name,rev_usd,unique_items,qty,page_location,page_title
+u_001,s_001,2025-08-28,1756358400000,session_start,0.00,0,0,https://example.com/,Home
+u_001,s_001,2025-08-28,1756358405000,page_view,0.00,0,0,https://example.com/category/shoes,Shoes Category
+u_001,s_001,2025-08-28,1756358410000,view_item,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_001,s_001,2025-08-28,1756358413000,add_to_cart,0.00,1,1,https://example.com/product/sku123,Running Shoe Model A
+u_001,s_001,2025-08-28,1756358418000,view_item,0.00,1,1,https://example.com/product/sku456,Trail Shoe Model B
+u_001,s_001,2025-08-28,1756358425000,add_to_cart,0.00,2,1,https://example.com/product/sku456,Trail Shoe Model B
+u_001,s_001,2025-08-28,1756358432000,begin_checkout,0.00,2,2,https://example.com/cart,Cart
+u_001,s_001,2025-08-28,1756358440000,purchase,149.98,2,2,https://example.com/checkout/complete,Order Confirmation
+u_002,s_010,2025-08-28,1756358500000,session_start,0.00,0,0,https://example.com/,Home
+u_002,s_010,2025-08-28,1756358504000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_002,s_010,2025-08-28,1756358509000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_002,s_010,2025-08-28,1756358514000,view_item,0.00,1,1,https://example.com/product/sku790,Compression Shorts
+u_002,s_010,2025-08-28,1756358519000,add_to_cart,0.00,1,1,https://example.com/product/sku790,Compression Shorts
+u_002,s_010,2025-08-28,1756358526000,remove_from_cart,0.00,0,0,https://example.com/cart,Cart
+u_002,s_010,2025-08-28,1756358533000,page_view,0.00,0,0,https://example.com/blog/recovery,Recovery Tips
+u_002,s_010,2025-08-28,1756358539000,session_end,0.00,0,0,https://example.com/,Home
+u_003,s_020,2025-08-28,1756358600000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_020,2025-08-28,1756358605000,page_view,0.00,0,0,https://example.com/category/accessories,Accessories Category
+u_003,s_020,2025-08-28,1756358610000,view_item,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_003,s_020,2025-08-28,1756358614000,add_to_cart,0.00,1,1,https://example.com/product/sku900,Sports Cap
+u_003,s_020,2025-08-28,1756358620000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_020,2025-08-28,1756358627000,purchase,24.99,1,1,https://example.com/checkout/complete,Order Confirmation
+u_003,s_021,2025-08-28,1756362000000,session_start,0.00,0,0,https://example.com/,Home
+u_003,s_021,2025-08-28,1756362006000,page_view,0.00,0,0,https://example.com/category/shoes,Shoes Category
+u_003,s_021,2025-08-28,1756362012000,view_item,0.00,1,1,https://example.com/product/sku456,Trail Shoe Model B
+u_003,s_021,2025-08-28,1756362018000,add_to_cart,0.00,1,1,https://example.com/product/sku456,Trail Shoe Model B
+u_003,s_021,2025-08-28,1756362024000,begin_checkout,0.00,1,1,https://example.com/cart,Cart
+u_003,s_021,2025-08-28,1756362031000,abandon_checkout,0.00,1,1,https://example.com/checkout,Checkout
+u_004,s_030,2025-08-28,1756362400000,session_start,0.00,0,0,https://example.com/,Home
+u_004,s_030,2025-08-28,1756362404000,page_view,0.00,0,0,https://example.com/category/equipment,Gym Equipment
+u_004,s_030,2025-08-28,1756362409000,view_item,0.00,1,1,https://example.com/product/sku1000,Yoga Mat
+u_004,s_030,2025-08-28,1756362413000,add_to_cart,0.00,1,1,https://example.com/product/sku1000,Yoga Mat
+u_004,s_030,2025-08-28,1756362419000,view_item,0.00,2,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_030,2025-08-28,1756362424000,add_to_cart,0.00,2,1,https://example.com/product/sku1001,Foam Roller
+u_004,s_030,2025-08-28,1756362431000,begin_checkout,0.00,2,2,https://example.com/cart,Cart
+u_004,s_030,2025-08-28,1756362439000,purchase,59.48,2,2,https://example.com/checkout/complete,Order Confirmation
+u_005,s_040,2025-08-28,1756363000000,session_start,0.00,0,0,https://example.com/,Home
+u_005,s_040,2025-08-28,1756363007000,page_view,0.00,0,0,https://example.com/category/apparel,Apparel Category
+u_005,s_040,2025-08-28,1756363013000,view_item,0.00,1,1,https://example.com/product/sku789,Performance Tee
+u_005,s_040,2025-08-28,1756363018000,add_to_cart,0.00,1,2,https://example.com/product/sku789,Performance Tee
+u_005,s_040,2025-08-28,1756363025000,begin_checkout,0.00,1,2,https://example.com/cart,Cart
+u_005,s_040,2025-08-28,1756363032000,purchase,39.98,1,2,https://example.com/checkout/complete,Order Confirmation

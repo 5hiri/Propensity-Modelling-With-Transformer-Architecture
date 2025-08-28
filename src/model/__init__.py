@@ -7,6 +7,7 @@ This module contains all the core transformer architecture components.
 from .transformer import SimpleLLM
 from .attention import MultiHeadAttention, CausalSelfAttention
 from .embeddings import InputEmbedding, PositionalEncoding, TokenEmbedding, LearnedPositionalEmbedding
+from .classifier import TransformerClassifier
 
 __all__ = [
     "SimpleLLM",
@@ -15,5 +16,6 @@ __all__ = [
     "InputEmbedding",
     "PositionalEncoding",
     "TokenEmbedding",
-    "LearnedPositionalEmbedding"
+    "LearnedPositionalEmbedding",
+    "TransformerClassifier"
 ]
