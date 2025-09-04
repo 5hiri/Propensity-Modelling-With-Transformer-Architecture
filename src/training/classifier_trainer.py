@@ -195,7 +195,7 @@ def train_classifier(cfg: ModelConfig,
             optimizer.step()
             scheduler.step()
 
-            if global_step % 100 == 0:
+            if global_step % 1000 == 0:
                 preds = out["preds"]
                 acc = (preds.view(-1) == labels.view(-1)).float().mean().item()
                 lr = scheduler.get_last_lr()[0]
@@ -249,3 +249,24 @@ def evaluate(model: torch.nn.Module, data_loader: DataLoader, device: str, retur
         print(f"val loss {avg_loss:.4f} acc {acc:.4f}")
     model.train()
     return (avg_loss, acc) if return_metrics else None
+
+
+@torch.no_grad()
+def evaluate_from_dataframe(model: torch.nn.Module, 
+                           df: DataFrameLike, 
+                           device: str, 
+                           batch_size: int = 32,
+                           return_metrics: bool = False):
+    """Evaluate model using a pandas DataFrame directly."""
+    if not _PANDAS_AVAILABLE:
+        raise RuntimeError("pandas not installed. Install pandas or use evaluate() with DataLoader.")
+    
+    dataset = _dataframe_to_dataset(df)
+    data_loader = DataLoader(
+        dataset,
+        batch_size=batch_size,
+        shuffle=False,
+        collate_fn=collate_batch
+    )
+    
+    return evaluate(model, data_loader, device, return_metrics)

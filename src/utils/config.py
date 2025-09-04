@@ -90,12 +90,12 @@ def get_small_classifier_config() -> ModelConfig:
     """Get a small model configuration for text classification."""
     return ModelConfig(
         d_model=128,
-        n_layers=2,
+        n_layers=4,
         n_heads=4,
         d_ff=512,
-        max_seq_len=256,
+        max_seq_len=128,
         batch_size=4,
-        max_epochs=5
+        max_epochs=2
     )
 
 def get_medium_classifier_config() -> ModelConfig:
