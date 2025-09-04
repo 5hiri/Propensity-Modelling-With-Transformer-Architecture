@@ -23,6 +23,10 @@ else:  # at runtime keep it loose to avoid hard dependency
 from src.utils.config import ModelConfig
 from src.model.transformer import SimpleLLM
 from src.model.classifier import TransformerClassifier
+from sklearn.metrics import confusion_matrix
+from sklearn.metrics import classification_report
+from sklearn.model_selection import KFold, StratifiedKFold
+import numpy as np
 
 
 class SimpleTextDataset(Dataset):
@@ -205,7 +209,8 @@ def train_classifier(cfg: ModelConfig,
             global_step += 1
 
         if val_loader:
-            val_loss, val_acc = evaluate(model, val_loader, device, return_metrics=True)
+            val_result = evaluate(model, val_loader, device, return_metrics=True)
+            val_loss, val_acc, val_cm, val_report = val_result
             improved = val_loss < best_val_loss - 1e-4
             if improved:
                 best_val_loss = val_loss
@@ -233,6 +238,9 @@ def train_classifier_from_dataframe(cfg: ModelConfig,
 def evaluate(model: torch.nn.Module, data_loader: DataLoader, device: str, return_metrics: bool = False):
     model.eval()
     total, correct, total_loss = 0, 0, 0.0
+    all_preds = []
+    all_labels = []
+    
     for input_ids, attention_mask, labels in data_loader:
         input_ids = input_ids.to(device)
         attention_mask = attention_mask.to(device)
@@ -243,12 +251,29 @@ def evaluate(model: torch.nn.Module, data_loader: DataLoader, device: str, retur
         preds = out["preds"]
         correct += (preds.view(-1) == labels.view(-1)).sum().item()
         total += bsz
+        
+        # Collect predictions and labels for confusion matrix
+        all_preds.extend(preds.view(-1).cpu().numpy())
+        all_labels.extend(labels.view(-1).cpu().numpy())
+    
     avg_loss = total_loss / total
     acc = correct / total
+    
     if not return_metrics:
         print(f"val loss {avg_loss:.4f} acc {acc:.4f}")
+        model.train()
+        return None
+    
+    # Import classification_report to get precision, recall, and support
+    
+    # Create confusion matrix
+    cm = confusion_matrix(all_labels, all_preds)
+    
+    # Get precision, recall, and support
+    report = classification_report(all_labels, all_preds, output_dict=True)
+    
     model.train()
-    return (avg_loss, acc) if return_metrics else None
+    return (avg_loss, acc, cm, report)
 
 
 @torch.no_grad()
@@ -270,3 +295,191 @@ def evaluate_from_dataframe(model: torch.nn.Module,
     )
     
     return evaluate(model, data_loader, device, return_metrics)
+
+
+@torch.no_grad()
+def cross_fold_validation(cfg: ModelConfig,
+                         dataset: Union[Dataset, DataFrameLike, list, tuple],
+                         n_splits: int = 5,
+                         stratified: bool = True,
+                         device: str = "cuda" if torch.cuda.is_available() else "cpu",
+                         random_state: int = 42):
+    """
+    Perform k-fold cross validation on the dataset.
+    
+    Args:
+        cfg: Model configuration
+        dataset: Dataset for cross validation
+        n_splits: Number of folds for cross validation
+        stratified: Whether to use stratified k-fold (maintains class distribution)
+        device: Device to run training on
+        random_state: Random state for reproducibility
+        
+    Returns:
+        Dictionary containing cross validation results
+    """
+    print(f"Starting {n_splits}-fold cross validation...")
+    
+    # Ensure dataset is in the right format
+    dataset = _ensure_dataset(dataset)
+    
+    # Extract data for cross validation
+    all_samples = []
+    all_labels = []
+    
+    for i in range(len(dataset)):
+        input_ids, attention_mask, label = dataset[i]
+        all_samples.append({
+            "input_ids": input_ids,
+            "attention_mask": attention_mask,
+            "label": label
+        })
+        all_labels.append(label)
+    
+    # Setup cross validation
+    if stratified:
+        kfold = StratifiedKFold(n_splits=n_splits, shuffle=True, random_state=random_state)
+        splits = list(kfold.split(all_samples, all_labels))
+    else:
+        kfold = KFold(n_splits=n_splits, shuffle=True, random_state=random_state)
+        splits = list(kfold.split(all_samples))
+    
+    # Store results for each fold
+    fold_results = []
+    all_accuracies = []
+    all_losses = []
+    all_f1_scores = []
+    all_precisions = []
+    all_recalls = []
+    
+    for fold, (train_idx, val_idx) in enumerate(splits):
+        print(f"\n=== Fold {fold + 1}/{n_splits} ===")
+        
+        # Split data for this fold
+        train_samples = [all_samples[i] for i in train_idx]
+        val_samples = [all_samples[i] for i in val_idx]
+        
+        train_dataset_fold = SimpleTextDataset(train_samples)
+        val_dataset_fold = SimpleTextDataset(val_samples)
+        
+        # Train model for this fold
+        print(f"Training fold {fold + 1}...")
+        
+        # Create a copy of the config for this fold to avoid modifying the original
+        from dataclasses import replace
+        fold_cfg = replace(cfg, max_epochs=max(1, cfg.max_epochs // 2))  # Reduce epochs for CV
+        
+        model = train_classifier(
+            cfg=fold_cfg,
+            train_dataset=train_dataset_fold,
+            val_dataset=None,  # Don't use validation during CV training
+            device=device
+        )
+        
+        # Evaluate on validation set
+        print(f"Evaluating fold {fold + 1}...")
+        val_loader_fold = DataLoader(
+            val_dataset_fold,
+            batch_size=cfg.batch_size,
+            shuffle=False,
+            collate_fn=collate_batch
+        )
+        
+        # Call evaluate with return_metrics=True and handle the return properly
+        eval_result = evaluate(model, val_loader_fold, device, return_metrics=True)
+        if eval_result is not None:
+            val_loss, accuracy, cm, report = eval_result
+            
+            # Extract metrics safely with proper type checking
+            if isinstance(report, dict):
+                macro_avg = report.get('macro avg', {})
+                weighted_avg = report.get('weighted avg', {})
+                
+                if isinstance(macro_avg, dict):
+                    macro_f1 = macro_avg.get('f1-score', 0.0)
+                    precision_macro = macro_avg.get('precision', 0.0)
+                    recall_macro = macro_avg.get('recall', 0.0)
+                else:
+                    macro_f1 = precision_macro = recall_macro = 0.0
+                    
+                if isinstance(weighted_avg, dict):
+                    weighted_f1 = weighted_avg.get('f1-score', 0.0)
+                else:
+                    weighted_f1 = 0.0
+            else:
+                # If report is not a dict, use default values
+                macro_f1 = weighted_f1 = precision_macro = recall_macro = 0.0
+        else:
+            # Fallback if evaluation fails
+            val_loss, accuracy = 0.0, 0.0
+            macro_f1 = weighted_f1 = precision_macro = recall_macro = 0.0
+            cm = np.zeros((2, 2))
+            report = {}
+        
+        # Store results
+        fold_result = {
+            'fold': fold + 1,
+            'val_loss': val_loss,
+            'accuracy': accuracy,
+            'f1_macro': macro_f1,
+            'f1_weighted': weighted_f1,
+            'precision_macro': precision_macro,
+            'recall_macro': recall_macro,
+            'confusion_matrix': cm,
+            'classification_report': report
+        }
+        fold_results.append(fold_result)
+        
+        # Collect for averaging
+        all_accuracies.append(accuracy)
+        all_losses.append(val_loss)
+        all_f1_scores.append(macro_f1)
+        all_precisions.append(precision_macro)
+        all_recalls.append(recall_macro)
+        
+        # Print fold results
+        print(f"Fold {fold + 1} Results:")
+        print(f"  Accuracy: {accuracy:.4f}")
+        print(f"  Loss: {val_loss:.4f}")
+        print(f"  F1 (macro): {macro_f1:.4f}")
+        print(f"  Precision (macro): {precision_macro:.4f}")
+        print(f"  Recall (macro): {recall_macro:.4f}")
+    
+    # Calculate overall statistics
+    mean_accuracy = np.mean(all_accuracies)
+    std_accuracy = np.std(all_accuracies)
+    mean_loss = np.mean(all_losses)
+    std_loss = np.std(all_losses)
+    mean_f1 = np.mean(all_f1_scores)
+    std_f1 = np.std(all_f1_scores)
+    mean_precision = np.mean(all_precisions)
+    std_precision = np.std(all_precisions)
+    mean_recall = np.mean(all_recalls)
+    std_recall = np.std(all_recalls)
+    
+    # Print summary
+    print(f"\n=== Cross Validation Summary ({n_splits}-fold) ===")
+    print(f"Accuracy:  {mean_accuracy:.4f} ± {std_accuracy:.4f}")
+    print(f"Loss:      {mean_loss:.4f} ± {std_loss:.4f}")
+    print(f"F1 Score:  {mean_f1:.4f} ± {std_f1:.4f}")
+    print(f"Precision: {mean_precision:.4f} ± {std_precision:.4f}")
+    print(f"Recall:    {mean_recall:.4f} ± {std_recall:.4f}")
+    
+    # Return comprehensive results
+    return {
+        'fold_results': fold_results,
+        'summary': {
+            'mean_accuracy': mean_accuracy,
+            'std_accuracy': std_accuracy,
+            'mean_loss': mean_loss,
+            'std_loss': std_loss,
+            'mean_f1': mean_f1,
+            'std_f1': std_f1,
+            'mean_precision': mean_precision,
+            'std_precision': std_precision,
+            'mean_recall': mean_recall,
+            'std_recall': std_recall,
+            'n_splits': n_splits,
+            'stratified': stratified
+        }
+    }

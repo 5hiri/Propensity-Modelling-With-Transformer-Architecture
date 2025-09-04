@@ -95,7 +95,7 @@ def get_small_classifier_config() -> ModelConfig:
         d_ff=512,
         max_seq_len=128,
         batch_size=4,
-        max_epochs=2
+        max_epochs=3
     )
 
 def get_medium_classifier_config() -> ModelConfig:
@@ -105,7 +105,7 @@ def get_medium_classifier_config() -> ModelConfig:
         n_layers=8,
         n_heads=8,
         d_ff=2048,
-        max_seq_len=4096,
+        max_seq_len=128,
         batch_size=4,
         max_epochs=5
     )

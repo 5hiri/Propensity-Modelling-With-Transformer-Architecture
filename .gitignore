@@ -188,3 +188,9 @@ cython_debug/
 
 # CSV files
 *.csv
+
+# Pickle files
+*.pkl
+
+# pt files
+*.pt
