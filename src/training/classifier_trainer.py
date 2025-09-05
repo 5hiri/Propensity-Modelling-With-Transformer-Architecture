@@ -297,7 +297,6 @@ def evaluate_from_dataframe(model: torch.nn.Module,
     return evaluate(model, data_loader, device, return_metrics)
 
 
-@torch.no_grad()
 def cross_fold_validation(cfg: ModelConfig,
                          dataset: Union[Dataset, DataFrameLike, list, tuple],
                          n_splits: int = 5,
