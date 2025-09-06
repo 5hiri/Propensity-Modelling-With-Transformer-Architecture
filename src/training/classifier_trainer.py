@@ -6,6 +6,8 @@ from dataclasses import asdict
 import math
 import time
 from typing import Union, Optional, Any, TYPE_CHECKING
+import matplotlib.pyplot as plt
+import numpy as np
 
 try:  # Optional pandas support
     import pandas as pd  # type: ignore
@@ -233,6 +235,151 @@ def train_classifier_from_dataframe(cfg: ModelConfig,
     if not _PANDAS_AVAILABLE:
         raise RuntimeError("pandas not installed. Install pandas or pass a Dataset instead.")
     return train_classifier(cfg, train_df, val_df, device=device)
+
+
+def train_classifier_with_early_stopping(cfg: ModelConfig,
+                                          train_data: Union[Dataset, DataFrameLike],
+                                          val_data: Optional[Union[Dataset, DataFrameLike]] = None,
+                                          device: str = "cuda" if torch.cuda.is_available() else "cpu",
+                                          patience: int = 7,
+                                          min_delta: float = 0.001,
+                                          restore_best_weights: bool = True,
+                                          verbose: bool = True,
+                                          plot_results: bool = True):
+    """
+    Train a classifier with early stopping based on validation loss.
+    
+    Args:
+        cfg: Model configuration
+        train_data: Training dataset (DataFrame or Dataset)
+        val_data: Validation dataset (DataFrame or Dataset)
+        device: Device to train on
+        patience: Number of epochs to wait after last improvement
+        min_delta: Minimum change in validation loss to qualify as improvement
+        restore_best_weights: Whether to restore best weights when stopping
+        verbose: Whether to print early stopping updates
+        plot_results: Whether to plot training curves when completed
+    
+    Returns:
+        dict: Contains 'model', 'best_epoch', 'best_val_loss', 'stopped_early', 'history'
+    """
+    if val_data is None:
+        raise ValueError("Validation data is required for early stopping")
+    
+    # Convert to datasets if needed
+    train_dataset = _ensure_dataset(train_data)
+    val_dataset = _ensure_dataset(val_data)
+    
+    # Create data loaders
+    train_loader = DataLoader(train_dataset, batch_size=cfg.batch_size, shuffle=True, collate_fn=collate_batch)
+    val_loader = DataLoader(val_dataset, batch_size=cfg.batch_size, shuffle=False, collate_fn=collate_batch)
+    
+    # Build model
+    model = build_model(cfg)
+    model = model.to(device)
+    
+    # Setup optimizer and scheduler
+    optimizer = torch.optim.AdamW(model.parameters(), lr=cfg.learning_rate)
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=cfg.max_epochs)
+    
+    # Early stopping variables
+    best_val_loss = float('inf')
+    best_epoch = 0
+    epochs_no_improve = 0
+    best_model_state = None
+    stopped_early = False
+    
+    # Track training history for plotting
+    history = {
+        'train_loss': [],
+        'val_loss': [],
+        'val_accuracy': [],
+        'learning_rate': [],
+        'epochs': []
+    }
+    
+    if verbose:
+        print(f"Starting training with early stopping (patience={patience}, min_delta={min_delta})")
+    
+    for epoch in range(cfg.max_epochs):
+        # Training phase
+        model.train()
+        train_loss = 0.0
+        train_steps = 0
+        
+        for input_ids, attention_mask, labels in train_loader:
+            input_ids = input_ids.to(device)
+            attention_mask = attention_mask.to(device)
+            labels = labels.to(device)
+            
+            optimizer.zero_grad()
+            out = model(input_ids, attention_mask=attention_mask, labels=labels)
+            loss = out["loss"]
+            loss.backward()
+            optimizer.step()
+            
+            train_loss += loss.item()
+            train_steps += 1
+        
+        scheduler.step()
+        avg_train_loss = train_loss / train_steps
+        
+        # Validation phase
+        val_result = evaluate(model, val_loader, device, return_metrics=True)
+        val_loss, val_acc, val_cm, val_report = val_result
+        
+        # Record history
+        history['train_loss'].append(avg_train_loss)
+        history['val_loss'].append(val_loss)
+        history['val_accuracy'].append(val_acc)
+        history['learning_rate'].append(scheduler.get_last_lr()[0])
+        history['epochs'].append(epoch + 1)
+        
+        if verbose:
+            lr = scheduler.get_last_lr()[0]
+            print(f"Epoch {epoch+1}/{cfg.max_epochs} - Train Loss: {avg_train_loss:.4f}, "
+                  f"Val Loss: {val_loss:.4f}, Val Acc: {val_acc:.4f}, LR: {lr:.2e}")
+        
+        # Check for improvement
+        if val_loss < best_val_loss - min_delta:
+            best_val_loss = val_loss
+            best_epoch = epoch
+            epochs_no_improve = 0
+            if restore_best_weights:
+                best_model_state = {k: v.cpu().clone() for k, v in model.state_dict().items()}
+            if verbose:
+                print(f"  ✓ New best validation loss: {best_val_loss:.4f}")
+        else:
+            epochs_no_improve += 1
+            if verbose:
+                print(f"  No improvement for {epochs_no_improve} epoch(s)")
+        
+        # Check early stopping
+        if epochs_no_improve >= patience:
+            stopped_early = True
+            if verbose:
+                print(f"Early stopping triggered after {epoch+1} epochs")
+                print(f"Best validation loss: {best_val_loss:.4f} at epoch {best_epoch+1}")
+            break
+    
+    # Restore best weights if requested
+    if restore_best_weights and best_model_state is not None:
+        model.load_state_dict(best_model_state)
+        if verbose:
+            print("Restored best model weights")
+    
+    # Plot results if requested
+    if plot_results and len(history['epochs']) > 0:
+        _plot_training_history(history, best_epoch, stopped_early)
+    
+    return {
+        'model': model,
+        'best_epoch': best_epoch,
+        'best_val_loss': best_val_loss,
+        'stopped_early': stopped_early,
+        'final_epoch': epoch,
+        'history': history
+    }
 
 @torch.no_grad()
 def evaluate(model: torch.nn.Module, data_loader: DataLoader, device: str, return_metrics: bool = False):
@@ -482,3 +629,108 @@ def cross_fold_validation(cfg: ModelConfig,
             'stratified': stratified
         }
     }
+
+
+def _plot_training_history(history, best_epoch, stopped_early):
+    """
+    Plot training history including loss, accuracy, and learning rate curves.
+    
+    Args:
+        history: Dictionary containing training history
+        best_epoch: Epoch with best validation loss
+        stopped_early: Whether training stopped early
+    """
+    epochs = history['epochs']
+    
+    # Create a figure with subplots
+    fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(15, 10))
+    
+    # Plot 1: Training and Validation Loss
+    ax1.plot(epochs, history['train_loss'], 'b-', label='Training Loss', linewidth=2)
+    ax1.plot(epochs, history['val_loss'], 'r-', label='Validation Loss', linewidth=2)
+    
+    # Mark best epoch
+    if best_epoch < len(epochs):
+        ax1.axvline(x=best_epoch + 1, color='g', linestyle='--', alpha=0.7, label=f'Best Epoch ({best_epoch + 1})')
+        ax1.plot(best_epoch + 1, history['val_loss'][best_epoch], 'go', markersize=8, label=f'Best Val Loss: {history["val_loss"][best_epoch]:.4f}')
+    
+    ax1.set_xlabel('Epoch')
+    ax1.set_ylabel('Loss')
+    ax1.set_title('Training and Validation Loss')
+    ax1.legend()
+    ax1.grid(True, alpha=0.3)
+    
+    # Plot 2: Validation Accuracy
+    ax2.plot(epochs, history['val_accuracy'], 'g-', label='Validation Accuracy', linewidth=2)
+    
+    # Mark best epoch
+    if best_epoch < len(epochs):
+        ax2.axvline(x=best_epoch + 1, color='g', linestyle='--', alpha=0.7, label=f'Best Epoch ({best_epoch + 1})')
+        ax2.plot(best_epoch + 1, history['val_accuracy'][best_epoch], 'ro', markersize=8, label=f'Val Acc: {history["val_accuracy"][best_epoch]:.4f}')
+    
+    ax2.set_xlabel('Epoch')
+    ax2.set_ylabel('Accuracy')
+    ax2.set_title('Validation Accuracy')
+    ax2.legend()
+    ax2.grid(True, alpha=0.3)
+    ax2.set_ylim([0, 1])
+    
+    # Plot 3: Learning Rate Schedule
+    ax3.plot(epochs, history['learning_rate'], 'orange', linewidth=2, label='Learning Rate')
+    ax3.set_xlabel('Epoch')
+    ax3.set_ylabel('Learning Rate')
+    ax3.set_title('Learning Rate Schedule')
+    ax3.legend()
+    ax3.grid(True, alpha=0.3)
+    ax3.set_yscale('log')
+    
+    # Plot 4: Training Summary
+    ax4.axis('off')
+    
+    # Calculate final metrics
+    final_train_loss = history['train_loss'][-1] if history['train_loss'] else 0
+    final_val_loss = history['val_loss'][-1] if history['val_loss'] else 0
+    final_val_acc = history['val_accuracy'][-1] if history['val_accuracy'] else 0
+    best_val_loss = min(history['val_loss']) if history['val_loss'] else 0
+    best_val_acc = max(history['val_accuracy']) if history['val_accuracy'] else 0
+    
+    summary_text = f"""Training Summary:
+    
+Total Epochs: {len(epochs)}
+Early Stopping: {'Yes' if stopped_early else 'No'}
+Best Epoch: {best_epoch + 1}
+
+Final Metrics:
+  Training Loss: {final_train_loss:.4f}
+  Validation Loss: {final_val_loss:.4f}
+  Validation Accuracy: {final_val_acc:.4f}
+
+Best Metrics:
+  Best Val Loss: {best_val_loss:.4f}
+  Best Val Accuracy: {best_val_acc:.4f}
+    """
+    
+    ax4.text(0.1, 0.9, summary_text, transform=ax4.transAxes, fontsize=12,
+             verticalalignment='top', fontfamily='monospace',
+             bbox=dict(boxstyle='round', facecolor='lightgray', alpha=0.8))
+    
+    plt.tight_layout()
+    
+    # Add main title
+    fig.suptitle('Training Results - Transformer Classifier with Early Stopping', 
+                 fontsize=16, fontweight='bold', y=0.98)
+    
+    plt.show()
+    
+    # Print additional summary
+    print(f"\n{'='*60}")
+    print(f"TRAINING COMPLETED")
+    print(f"{'='*60}")
+    print(f"Total epochs trained: {len(epochs)}")
+    print(f"Early stopping: {'Yes' if stopped_early else 'No'}")
+    print(f"Best epoch: {best_epoch + 1}")
+    print(f"Best validation loss: {best_val_loss:.4f}")
+    print(f"Best validation accuracy: {best_val_acc:.4f}")
+    print(f"Final validation loss: {final_val_loss:.4f}")
+    print(f"Final validation accuracy: {final_val_acc:.4f}")
+    print(f"{'='*60}")

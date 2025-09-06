@@ -59,7 +59,7 @@ def get_small_config() -> ModelConfig:
         d_ff=512,
         max_seq_len=256,
         batch_size=4,
-        max_epochs=5
+        max_epochs=13
     )
 
 
@@ -94,8 +94,8 @@ def get_small_classifier_config() -> ModelConfig:
         n_heads=4,
         d_ff=512,
         max_seq_len=128,
-        batch_size=4,
-        max_epochs=3
+        batch_size=8,
+        max_epochs=20
     )
 
 def get_medium_classifier_config() -> ModelConfig:
@@ -106,8 +106,8 @@ def get_medium_classifier_config() -> ModelConfig:
         n_heads=8,
         d_ff=2048,
         max_seq_len=128,
-        batch_size=4,
-        max_epochs=5
+        batch_size=8,
+        max_epochs=20
     )
 
 def get_large_classifier_config() -> ModelConfig:
@@ -117,7 +117,7 @@ def get_large_classifier_config() -> ModelConfig:
         n_layers=12,
         n_heads=12,
         d_ff=3072,
-        max_seq_len=8192,
-        batch_size=4,
-        max_epochs=5
+        max_seq_len=256,
+        batch_size=8,
+        max_epochs=20
     )
