@@ -145,4 +145,4 @@ python .\fake_data_gen.py --users 50 --weeks 6 --out fake-6-weeks.csv
 
 ## License
 
-Please see the repository’s license if provided. If missing, treat as “all rights reserved” until clarified.
+MIT License. See the `LICENSE` file at the repository root for full terms.
