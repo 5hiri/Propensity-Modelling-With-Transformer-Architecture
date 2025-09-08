@@ -1,151 +1,148 @@
-# SimpleLLM Architecture Documentation
+## Propensity Modelling with Transformer Architecture
 
-This documentation provides a comprehensive guide to understanding the transformer architecture implemented in SimpleLLM. Each module is explained with both conceptual understanding and implementation details.
+Lightweight, from-scratch Transformer components for two common workflows:
+- Autoregressive language modeling and text generation
+- Sequence classification for tasks like churn/propensity modelling
 
-## Overview
+The code is small, readable, and easy to adapt to your own tokenizers and datasets.
 
-SimpleLLM is a clean, educational implementation of a transformer-based language model. The architecture follows the "Attention is All You Need" paper with modern improvements like pre-norm layers and causal attention for autoregressive generation.
 
-### Key Components
+## Quick start
 
-The model consists of three main modules:
+Prereqs: Python 3.10+ and pip. GPU is optional (auto-detected via PyTorch).
 
-1. **[Embeddings](embeddings.md)** - Convert tokens to vectors and add positional information
-2. **[Attention](attention.md)** - Multi-head self-attention mechanisms with causal masking
-3. **[Transformer](transformer.md)** - Complete model architecture with transformer blocks and generation
+Install dependencies (Windows PowerShell):
 
-## Architecture Flow
-
-```
-Input Tokens → Embeddings → Transformer Blocks → Output Logits
-     ↓              ↓              ↓                ↓
-   [1,15,234]   [vectors +    [attention +      [vocab
-                positions]   feed-forward]   probabilities]
+```powershell
+python -m venv .venv; .\.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
 ```
 
-### Data Flow Through the Model
+Optionally run the helper setup script:
 
-1. **Token IDs** `[batch_size, seq_len]` enter the model
-2. **Embedding Layer** converts to dense vectors `[batch_size, seq_len, d_model]`
-3. **Positional Encoding** adds position information
-4. **Transformer Blocks** (repeated N times):
-   - Causal self-attention with residual connections
-   - Feed-forward network with residual connections
-   - Layer normalization (pre-norm style)
-5. **Final Layer Norm** prepares for output projection
-6. **Language Model Head** projects to vocabulary `[batch_size, seq_len, vocab_size]`
+```powershell
+python .\setup.py
+```
 
-## Reading Guide
 
-### For Beginners
-Start with the conceptual sections of each document:
-1. [Embeddings - Purpose and Role](embeddings.md#purpose-and-role)
-2. [Attention - Mathematical Concepts](attention.md#mathematical-concepts)
-3. [Transformer - Integration](transformer.md#integration-with-other-components)
+## Examples
 
-### For Implementers
-Focus on the code flow and implementation details:
-1. [Attention - Code Flow](attention.md#code-flow-and-data-shapes)
-2. [Embeddings - Implementation Details](embeddings.md#implementation-details-and-design-choices)
-3. [Transformer - Design Choices](transformer.md#implementation-details-and-design-choices)
+Train a tiny language model (uses a small config and auto-creates sample data under `data/` if empty):
 
-### For Researchers
-Examine the mathematical foundations and design rationale:
-1. [Attention - Mathematical Concepts](attention.md#mathematical-concepts)
-2. [Embeddings - Mathematical Concepts](embeddings.md#mathematical-concepts)
-3. [Transformer - Mathematical Concepts](transformer.md#mathematical-concepts)
+```powershell
+python .\examples\train_simple_model.py
+```
 
-## Key Design Decisions
+Character-level training (no external tokenizer; good for quick demos):
 
-### Pre-Norm Architecture
-SimpleLLM uses pre-normalization (LayerNorm before sub-layers) rather than post-norm:
-- More stable training dynamics
-- Better gradient flow in deep networks
-- Reduced sensitivity to learning rate
+```powershell
+python .\examples\train_char_model.py
+```
 
-### Causal Self-Attention
-The model uses causal masking for autoregressive generation:
-- Prevents information leakage from future tokens
-- Enables parallel training while maintaining autoregressive property
-- Essential for language modeling tasks
+Generate text using the best saved checkpoint (after training):
 
-### Sinusoidal Positional Encoding
-Default positional encoding uses fixed sinusoidal patterns:
-- Deterministic and parameter-free
-- Can extrapolate to longer sequences than seen during training
-- Provides unique position signatures through frequency combinations
+```powershell
+python .\examples\generate_text.py
+```
 
-### Multi-Head Attention
-Attention is split into multiple heads:
-- Each head can focus on different types of relationships
-- Parallel processing of different representation subspaces
-- Richer attention patterns than single-head attention
+Train a minimal text classifier (binary by default, using synthetic tokenized samples inside the script):
 
-## Model Configuration
+```powershell
+python .\examples\train_classification_model.py
+```
 
-Typical SimpleLLM configuration:
+Notebook: open `Propensity Modelling.ipynb` for a guided, exploratory workflow.
+
+
+## Using the classifier with your own data
+
+You can train directly from a PyTorch `Dataset`, a pandas `DataFrame`, or a simple list of dict samples. Each sample is:
+
+- input_ids: LongTensor [T]
+- attention_mask: LongTensor [T] (1 for real tokens, 0 for padding)
+- label: int (class index; for binary you can keep `num_classes=2`)
+
+Minimal pattern:
+
 ```python
-model = SimpleLLM(
-    vocab_size=50257,      # GPT-2 vocabulary size
-    d_model=768,           # Hidden dimension
-    n_layers=12,           # Number of transformer blocks
-    n_heads=12,            # Number of attention heads
-    d_ff=3072,             # Feed-forward dimension (4 * d_model)
-    max_seq_len=1024,      # Maximum sequence length
-    dropout=0.1,           # Dropout rate
-    use_learned_pe=False   # Use sinusoidal positional encoding
-)
+import torch
+from src.utils.config import get_small_classifier_config
+from src.training.classifier_trainer import train_classifier
+
+# Build your own tokenized samples
+samples = [
+		{"input_ids": torch.tensor([12, 34, 56]),
+		 "attention_mask": torch.tensor([1, 1, 1]),
+		 "label": 1},
+		# ... more rows
+]
+
+cfg = get_small_classifier_config()
+cfg.vocab_size = 50_000  # set to your tokenizer vocab size
+cfg.num_classes = 2      # or >2 for multi-class
+
+split = int(0.8 * len(samples))
+model = train_classifier(cfg, samples[:split], samples[split:])
 ```
 
-## Performance Characteristics
+For convenience with DataFrames, you can pass columns `input_ids`, `label`, and optional `attention_mask`. See `train_classifier_from_dataframe` and `evaluate_from_dataframe` in `src/training/classifier_trainer.py`.
 
-### Memory Usage
-- Model parameters: ~117M for the configuration above
-- Attention memory: O(seq_len²) per layer
-- Activation memory: O(seq_len × d_model × n_layers)
 
-### Computational Complexity
-- Training: O(seq_len² × d_model × n_layers) per forward pass
-- Generation: O(seq_len × d_model × n_layers) per token
-- Attention dominates for long sequences
+## Architecture overview
 
-## Extensions and Modifications
+- `src/model/transformer.py` — `SimpleLLM` encoder-decoder stack for autoregressive LM with:
+	- Token + positional embeddings (`src/model/embeddings.py`)
+	- Causal self-attention (`src/model/attention.py`)
+	- Pre-norm residual blocks and FFN
+	- `.generate(...)` for greedy/sampling/top-k/top-p decoding
+- `src/model/classifier.py` — `TransformerClassifier` wraps `SimpleLLM` for sequence classification with CLS/mean pooling.
+- `src/generation/generator.py` — `TextGenerator` convenience wrapper for prompting and strategy comparisons.
+- `src/training/trainer.py` — `LMTrainer` for language-model training loops, checkpointing, and plotting.
+- `src/training/classifier_trainer.py` — utilities: `train_classifier`, early stopping, cross-fold validation, and evaluation.
+- `src/training/data_loader.py` — simple text dataset + collate, sample data creation, and split helpers.
+- `src/utils/tokenizer.py` — GPT-2 tokenizer wrapper (`transformers`) for wordpiece-like tokens.
+- `src/utils/char_tokenizer.py` — dependency-free character tokenizer for quick tests.
 
-The modular design makes it easy to experiment with:
+Key configs live in `src/utils/config.py` (see `get_small_config()` and `get_small_classifier_config()` to start).
 
-### Alternative Attention Mechanisms
-- Replace `CausalSelfAttention` with other attention variants
-- Add cross-attention for encoder-decoder architectures
-- Implement sparse attention patterns for longer sequences
 
-### Different Positional Encodings
-- Switch between sinusoidal and learned positional embeddings
-- Implement relative positional encoding
-- Add rotary positional embedding (RoPE)
+## Project structure
 
-### Architecture Variations
-- Modify feed-forward networks (e.g., use SwiGLU activation)
-- Experiment with different normalization schemes
-- Add additional regularization techniques
+- `examples/` — runnable scripts for training/generation
+- `src/model/` — transformer, attention, embeddings, classifier head
+- `src/training/` — trainers, loaders, evaluation, CV
+- `src/generation/` — generation helpers (prompt, strategies, interactive)
+- `src/utils/` — tokenizers and configuration
+- `docs/` — concept notes: attention, embeddings, transformer
 
-## Common Patterns
+Explore:
+- `docs/attention.md`
+- `docs/embeddings.md`
+- `docs/transformer.md`
 
-### Residual Connections
-```python
-x = x + sublayer(layer_norm(x))
+
+## Propensity modelling tips
+
+- Model customer sequences as token streams (events, attributes, buckets). You can:
+	- Use a subword tokenizer (`SimpleTokenizer`) over textual events, or
+	- Build a bespoke vocabulary (IDs per event/type) and feed integer tokens directly.
+- Provide `attention_mask` to ignore padding for variable-length sessions.
+- Start with `get_small_classifier_config()`; scale up dimensions/heads/layers once the pipeline works.
+
+The repo includes `fake_data_gen.py` to produce simple weekly session CSVs you can adapt. Example:
+
+```powershell
+python .\fake_data_gen.py --users 50 --weeks 6 --out fake-6-weeks.csv
 ```
-Essential for training deep networks and maintaining gradient flow.
 
-### Attention Masking
-```python
-scores = scores.masked_fill(mask == 0, -1e9)
-```
-Prevents attention to invalid positions (padding or future tokens).
 
-### Shape Transformations
-```python
-x = x.view(batch_size, seq_len, n_heads, d_k).transpose(1, 2)
-```
-Reshaping for multi-head attention while maintaining batch processing.
+## Notes
 
-This documentation provides both the theoretical foundation and practical implementation details needed to understand, modify, and extend the SimpleLLM architecture. Each module builds upon the others to create a complete, functional language model suitable for both learning and research.
+- Works on CPU and CUDA; Windows-safe dataloaders (`num_workers=0`).
+- Checkpoints are written to `models/`, logs and plots to `logs/`.
+- If using `SimpleTokenizer` (GPT-2), the first run downloads tokenizer files via `transformers`.
+
+
+## License
+
+Please see the repository’s license if provided. If missing, treat as “all rights reserved” until clarified.
